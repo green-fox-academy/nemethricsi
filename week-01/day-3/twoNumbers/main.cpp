@@ -16,7 +16,7 @@ int main(int argc, char* args[]) {
     std::cout << "the result of 22 multiplied by 13: " << b * a << std::endl;
 
     // Print the result of 22 divided by 13 (as a decimal fraction
-    std::cout << "the result of 22 divided by 13 (as a decimal fraction): " << (float)a / (float)b << std::endl;
+    std::cout << "the result of 22 divided by 13 (as a decimal fraction): " << static_cast<float>(a) / static_cast<float>(b) << std::endl;
 
     // Print the integer part of 22 divided by 13
     std::cout << "the integer part of 22 divided by 13: " << a / b << std::endl;
