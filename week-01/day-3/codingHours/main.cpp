@@ -18,7 +18,7 @@ int main(int argc, char* args []) {
 
     std::cout << "An attandee in GFA spends " << numberOfWeeksInSemester * 5 * dailyCodingHours << " hours with coding in a semester if he/she codes only on weekdays." << std::endl;
 
-    std::cout << "An attandee in GFA spends " << averageWeeklyWorkingHours * 100 / 168 << "% of the time with coding in the whole semester." << std::endl;
+    std::cout << "That's " << averageWeeklyWorkingHours * 100 / 168 << "% of the whole time in the semester." << std::endl;
 
 
     return 0;
