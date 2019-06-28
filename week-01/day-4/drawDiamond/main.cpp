@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main(int argc, char *args[]) {
+int main(int argc, char *args[])
+{
 
     // Write a program that reads a number from the standard input, then draws a
     // diamond like this:
@@ -15,9 +16,9 @@ int main(int argc, char *args[]) {
     //    *
     //
     // The diamond should have as many lines as the number was
-    int userInput;
-    std::cout << "Please enter a number:" << std::endl;
-    std::cin >> userInput;
+    int userInput = 0;
+    std::cout << "Please enter a number:" << std::endl;
+    std::cin >> userInput;
     int halfDiamond = userInput / 2;
 
     for (int i = 0; i < userInput; ++i) {
