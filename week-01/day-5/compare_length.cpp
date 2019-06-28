@@ -19,6 +19,6 @@ int main(int argc, char* args[]) {
     } else {
         std::cout << "p2 and p1 have the same number of elements." << std::endl;
     }
-    
+
     return 0;
 }
