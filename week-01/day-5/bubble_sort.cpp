@@ -1,10 +1,6 @@
 #include <iostream>
 #include <string>
 
-//  Create a function that takes a list of numbers as parameter
-//  Don't forget you have to pass the size of the list as a parameter as well
-//  Returns a list where the elements are sorted in ascending numerical order by using bubble sort
-//  Make a second boolean parameter, if it's `true` sort that list descending
 
 void bubbleSort(int arr[], int n);
 
@@ -13,7 +9,7 @@ void printArray(int arr[], int n);
 int main(int argc, char *args[])
 {
 
-    int myArray[] = {100, 12, 76, 11, 9, 5, 4, 3, 2};
+    int myArray[] = {100, 14, 76, 1, 5, 2, 12, 3};
     int numberOfElements = sizeof(myArray) / sizeof(myArray[0]);
 
     printArray(myArray, numberOfElements);
@@ -49,6 +45,6 @@ void bubbleSort(int arr[], int n)
 void printArray(int arr[], int n)
 {
     for (int i = 0; i < n; ++i) {
-        std::cout << arr[i] << " ";
+        std::cout << arr[i] << ", ";
     }
 }
