@@ -1,24 +1,16 @@
 #include <iostream>
 
-int main(int argc, char* args[]) {
-
-    // Write a program that stores a number, and the user has to figure it out.
-    // The user can input guesses, after each guess the program would tell one
-    // of the following:
-    //
-    // The stored number is higher
-    // The stried number is lower
-    // You found the number: 8
-
+int main(int argc, char *args[])
+{
     int theNumber = 10;
-    int userInput;
+    int userInput = 0;
     bool gameOver = false;
 
     do {
-        std::cout << "Please enter a number:" << std::endl;
+        std::cout << "Please enter a number: ";
         std::cin >> userInput;
 
-        if (userInput < theNumber){
+        if (userInput < theNumber) {
             std::cout << "The stored number is higher." << std::endl;
         } else if (userInput > theNumber) {
             std::cout << "The stored number is lower." << std::endl;
@@ -27,7 +19,7 @@ int main(int argc, char* args[]) {
             gameOver = true;
         }
 
-    } while(!gameOver);
+    } while (!gameOver);
 
     return 0;
 }

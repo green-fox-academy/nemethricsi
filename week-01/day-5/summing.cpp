@@ -5,9 +5,8 @@ int sum(int num);
 
 int main(int argc, char *args[])
 {
-
     int userInput;
-    std::cout << "Please enter an integer and I will return the sum of numbers from zero until your given number:" << std::endl;
+    std::cout << "Please enter an integer and I will return the sum of numbers from zero until your given number: ";
     std::cin >> userInput;
     std::cout << "The sum of numbers from 0 until " << userInput << " is: " << sum(userInput) << std::endl;
 
@@ -21,5 +20,4 @@ int sum(int num)
         temp = temp + i;
     }
     return temp;
-
 }

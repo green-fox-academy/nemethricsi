@@ -1,13 +1,10 @@
 #include <iostream>
 
-int main(int argc, char* args[]) {
-
-    // Write a program that asks for a double that is a distance in miles,
-    // then it converts that value to kilometers and prints it
-
-    double miles;
-    double kms;
-    std::cout << "Please enter a distance in mile(s): " << std::endl;
+int main(int argc, char *args[])
+{
+    double miles = 0;
+    double kms = 0;
+    std::cout << "Please enter a distance in mile(s): ";
     std::cin >> miles;
 
     kms = miles * 1.609344;

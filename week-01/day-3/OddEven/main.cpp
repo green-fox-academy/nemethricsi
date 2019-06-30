@@ -1,19 +1,15 @@
 #include <iostream>
 
-int main(int argc, char* args[]) {
+int main(int argc, char *args[])
+{
+    int userInput;
+    std::cout << "Please enter an integer: ";
+    std::cin >> userInput;
 
-    // Write a program that reads a number from the standard input,
-    // Then prints "Odd" if the number is odd, or "Even" if it is even.
-
-    int number;
-    std::cout << "Please enter an integer: " << std::endl;
-    std::cin >> number;
-
-    if ((number % 2) == 0) {
-        std::cout << "Even" << std::endl;
+    if ((userInput % 2) == 0) {
+        std::cout << "This number is: Even" << std::endl;
     } else {
-        std::cout << "Odd" << std::endl;
-
+        std::cout << "This number is: Odd" << std::endl;
     }
 
     return 0;

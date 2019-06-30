@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 
+
 int main(int argc, char *args[])
 {
     int n = 0;
     std::cout << "Enter a number (n) for drawing a n*n matrix: ";
-    std::cin >> n;
+    std::cin >> n;
 
     int matrix[n][n];
 
@@ -25,6 +26,5 @@ int main(int argc, char *args[])
         }
         std::cout << std::endl;
     }
-
     return 0;
 }
