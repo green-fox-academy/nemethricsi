@@ -14,6 +14,5 @@ int main(int argc, char *args[])
 
 std::string appendAFunc(std::string anyWord)
 {
-
     return anyWord + "a";
 }
