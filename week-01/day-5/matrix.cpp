@@ -16,13 +16,19 @@
 int main(int argc, char *args[])
 {
 
-    int n = 8; //n x n -es mátrix
+    int n = 0; // for a matrix n x n
+    std::cout << "Enter a number (n) for drawing a n*n matrix: ";
+    std::cin >> n;
 
     int matrix[n][n];
 
     for (int i = 0; i <n; ++i) {
         for (int j = 0; j <n; ++j) {
-            matrix[i][j] = 0;
+            if (i == j){
+                matrix[i][j] = 1;
+            } else {
+                matrix[i][j] = 0;
+            }
         }
 
     }
