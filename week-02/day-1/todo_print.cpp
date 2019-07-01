@@ -20,7 +20,7 @@ int main(int argc, char *args[])
 
     todoText.append(" - Download games\n");
     todoText.append("    ");
-    todoText.append(" - Download games\n");
+    todoText.append(" - Diablo\n");
 
     std::cout << todoText << std::endl;
 
