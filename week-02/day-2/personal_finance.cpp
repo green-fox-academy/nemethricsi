@@ -11,27 +11,27 @@
 // Which was our cheapest spending?
 // What was the average amount of our spendings?
 
-int totalCost(std::vector<int> vec);
+int calcTotalCost(std::vector<int> vec);
 
-int biggestExpense(std::vector<int> vec);
+int showBiggestExpense(std::vector<int> vec);
 
-int smallestExpense(std::vector<int> vec);
+int showSmallestExpense(std::vector<int> vec);
 
-double averageExpenses(std::vector<int> vec);
+double calcAverageCost(std::vector<int> vec);
 
 int main(int argc, char *args[])
 {
     std::vector<int> expenses = {500, 1000, 1250, 175, 800, 120};
 
-    std::cout << "Total we spent: " << totalCost(expenses) << std::endl;
-    std::cout << "Biggest expense: " << biggestExpense(expenses) << std::endl;
-    std::cout << "Smallest expense: " << smallestExpense(expenses) << std::endl;
-    std::cout << "Average cost: " << averageExpenses(expenses) << std::endl;
+    std::cout << "Total we spent: " << calcTotalCost(expenses) << std::endl;
+    std::cout << "Biggest expense: " << showBiggestExpense(expenses) << std::endl;
+    std::cout << "Smallest expense: " << showSmallestExpense(expenses) << std::endl;
+    std::cout << "Average cost: " << calcAverageCost(expenses) << std::endl;
 
     return 0;
 }
 
-int totalCost(std::vector<int> vec)
+int calcTotalCost(std::vector<int> vec)
 {
     int cost = 0;
     for (int i = 0; i < vec.size(); i++) {
@@ -40,10 +40,10 @@ int totalCost(std::vector<int> vec)
     return cost;
 }
 
-int biggestExpense(std::vector<int> vec)
+int showBiggestExpense(std::vector<int> vec)
 {
-    int biggest = 0;
-    for (int i = 0; i < vec.size(); i++) {
+    int biggest = vec[0];
+    for (int i = 1; i < vec.size(); i++) {
         if (biggest < vec[i]) {
             biggest = vec[i];
         }
@@ -51,10 +51,10 @@ int biggestExpense(std::vector<int> vec)
     return biggest;
 }
 
-int smallestExpense(std::vector<int> vec)
+int showSmallestExpense(std::vector<int> vec)
 {
     int smallest = vec[0];
-    for (int i = 0; i < vec.size(); i++){
+    for (int i = 1; i < vec.size(); i++){
         if (smallest > vec[i]) {
             smallest = vec[i];
         }
@@ -62,11 +62,7 @@ int smallestExpense(std::vector<int> vec)
     return smallest;
 }
 
-double averageExpenses(std::vector<int> vec)
+double calcAverageCost(std::vector<int> vec)
 {
-    double sum = 0;
-    for (int i = 0; i < vec.size(); i++){
-        sum = sum + vec[i];
-    }
-    return sum / vec.size();
+    return calcTotalCost(vec) / static_cast<double>(vec.size());
 }
