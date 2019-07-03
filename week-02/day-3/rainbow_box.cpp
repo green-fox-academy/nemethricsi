@@ -7,7 +7,7 @@
 
 // Create a loop that fills the canvas with a rainbow of colored squares.
 
-void drawSquare(int size, int color, SDL_Renderer *gRenderer);
+void drawSquare(int size, int arr[], SDL_Renderer *gRenderer);
 
 
 void draw(SDL_Renderer *gRenderer)
@@ -15,20 +15,19 @@ void draw(SDL_Renderer *gRenderer)
     srand(time(0));
 
     int squareSize = 400;
-    int fillColor = 0;
 
-    for (int i = squareSize; i > 0; i -= 20 ){
-        drawSquare(i, fillColor, gRenderer);
+    for (int j = squareSize; j > 0; j -= 20 ){
+        int fillColorArray[3] = {rand() % 255, rand() % 255, rand() % 255};
+        drawSquare(j, fillColorArray, gRenderer);
     }
 }
 
-void drawSquare(int size, int color, SDL_Renderer *gRenderer)
+void drawSquare(int size, int arr[], SDL_Renderer *gRenderer)
 {
     int fullWidth = 640;
     int fullHeight = 480;
 
-    SDL_SetRenderDrawColor(gRenderer, rand() % 255, rand() % 255, rand() % 255, 255);
+    SDL_SetRenderDrawColor(gRenderer, arr[0], arr[1], arr[2], 255);
     SDL_Rect fillRect = {(fullWidth - size) / 2, (fullHeight - size) / 2, size, size};
     SDL_RenderFillRect(gRenderer, &fillRect);
 }
-
