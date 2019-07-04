@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(SDL2_ROOT_PATH /usr/local)
 
-set(EXECUTABLES "draw;line_play")
+set(EXECUTABLES "draw;line_play;envelope_star")
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(GFA_SDL2 REQUIRED)
