@@ -19,7 +19,7 @@ public:
 
 private:
     int _initialValue;
-    int _actualValue = _initialValue;
+    int _actualValue;
 };
 
 

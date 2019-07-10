@@ -5,14 +5,14 @@
 #include "Counter.h"
 #include <iostream>
 
-Counter::Counter() : _initialValue(0)
+Counter::Counter() : _initialValue(0), _actualValue(0)
 {
-    std::cout << "constructor ran w/o parameter" << std::endl;
+    std::cout << "constructor ran w/o parameter" << std::endl;
 }
 
-Counter::Counter(int value) : _initialValue(value)
+Counter::Counter(int value) : _initialValue(value), _actualValue(_initialValue)
 {
-    std::cout << "constructor ran w/ 1 parameter" << std::endl;
+    std::cout << "constructor ran w/ 1 parameter" << std::endl;
 }
 
 void Counter::add(int number)
