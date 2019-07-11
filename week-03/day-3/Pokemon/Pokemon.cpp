@@ -12,3 +12,18 @@ bool Pokemon::isEffectiveAgainst(Pokemon anotherPokemon)
 {
     return _effectiveAgainst == anotherPokemon._type;
 }
+
+const std::string &Pokemon::getName() const
+{
+    return _name;
+}
+
+const std::string &Pokemon::getType() const
+{
+    return _type;
+}
+
+const std::string &Pokemon::getEffectiveAgainst() const
+{
+    return _effectiveAgainst;
+}

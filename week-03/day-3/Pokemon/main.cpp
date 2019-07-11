@@ -16,8 +16,9 @@ std::vector<Pokemon> initializePokemons()
     return pokemons;
 }
 
-int main(int argc, char* args[])
+int main(int argc, char *args[])
 {
+    std::string name;
     std::vector<Pokemon> pokemonOfAsh = initializePokemons();
 
     // Every pokemon has a name and a type.
@@ -27,6 +28,11 @@ int main(int argc, char* args[])
     // A wild pokemon appeared!
 
     Pokemon wildPokemon("Oddish", "leaf", "water");
+
+    for (int i = 0; i < pokemonOfAsh.size(); ++i) {
+        if (pokemonOfAsh[i].isEffectiveAgainst(wildPokemon))
+            name = pokemonOfAsh[i].getName();
+    }
 
     // Which pokemon should Ash use?
 
