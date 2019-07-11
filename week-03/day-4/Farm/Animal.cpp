@@ -1,9 +1,10 @@
 #include "Animal.h"
 #include <iostream>
 
-Animal::Animal() : _hunger(50), _thirst(50)
+Animal::Animal(std::string name) : _name(name), _hunger(50), _thirst(50)
 {
-    std::cout << "Constructor ran without parameters" << std::endl;
+    std::cout << "Constructor ran with 1 parameter" << std::endl;
+    std::cout << std::endl;
 }
 
 void Animal::eat()
@@ -21,3 +22,19 @@ void Animal::play()
     _hunger++;
     _thirst++;
 }
+
+std::string Animal::getName() const
+{
+    return _name;
+}
+
+int Animal::getHunger() const
+{
+    return _hunger;
+}
+
+int Animal::getThirst() const
+{
+    return _thirst;
+}
+
