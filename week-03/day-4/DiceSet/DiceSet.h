@@ -11,9 +11,13 @@ public:
     DiceSet();
 
     void roll();
+
     void roll(int i);
+
     std::vector<int> getCurrent() const;
+
     int getCurrent(int i) const;
+
 private:
     std::vector<int> dices;
 };
