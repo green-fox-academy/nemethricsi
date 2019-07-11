@@ -1,6 +1,6 @@
 #include "Thing.h"
 
-Thing::Thing(const std::string& name)
+Thing::Thing(const std::string &name)
 {
     _name = name;
     _completed = false;

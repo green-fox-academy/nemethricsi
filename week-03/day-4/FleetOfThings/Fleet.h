@@ -11,7 +11,8 @@ class Fleet
 public:
     Fleet();
 
-    void add(const Thing& thing);
+    void add(const Thing &thing);
+
     std::string toString();
 
 private:

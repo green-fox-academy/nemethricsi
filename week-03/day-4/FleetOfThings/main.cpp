@@ -2,7 +2,7 @@
 
 #include "fleet.h"
 
-int main(int argc, char* args[])
+int main(int argc, char *args[])
 {
     Fleet fleet;
     //   You have the `Thing` class
@@ -16,6 +16,18 @@ int main(int argc, char* args[])
     // 2. [ ] Remove the obstacles
     // 3. [x] Stand up
     // 4. [x] Eat lunch
+
+    Thing getMilk("Get milk");
+    Thing remove("Remove the obstacles");
+    Thing standUp("Stand up");
+    standUp.complete();
+    Thing eatLunch("Eat lunch");
+    eatLunch.complete();
+
+    fleet.add(getMilk);
+    fleet.add(remove);
+    fleet.add(standUp);
+    fleet.add(eatLunch);
 
     std::cout << fleet.toString() << std::endl;
     return 0;
