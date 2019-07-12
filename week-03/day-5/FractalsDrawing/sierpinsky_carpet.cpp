@@ -26,6 +26,3 @@ void draw(SDL_Renderer* gRenderer) {
 }
 
 // rectangleColor(SDL_Renderer * renderer, Sint16 x1, Sint16 y1, Sint16 x2, Sint16 y2, Uint32 color)
-
-//matrix
-//draw_recursive(gRenderer, x1, y1 + (y2 - y1) / 3, x1 + (x2 - x1) / 3, 2 * ((y2 - y1) / 3), depth + 1);
