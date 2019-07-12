@@ -3,8 +3,8 @@
 #include "draw.h"
 
 //Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 700;
+const int SCREEN_HEIGHT = 700;
 
 //Starts up SDL and creates window
 bool init();
