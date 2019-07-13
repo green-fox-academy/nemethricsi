@@ -12,8 +12,11 @@ public:
 
     // getters
     const std::string &getAuthorName() const;
+
     const std::string &getTitle() const;
+
     const std::string &getText() const;
+
     const std::string &getPublicationDate() const;
 
 private:
