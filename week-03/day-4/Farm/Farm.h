@@ -8,7 +8,7 @@
 class Farm
 {
 public:
-    Farm();
+    Farm(int freeSlots);
 
     void add(Animal animal);
 
@@ -16,9 +16,13 @@ public:
 
     int getFreeSlots() const;
 
+    Animal breed(std::string newAnimal);
+
+    std::vector<Animal> slaughter();
+
 private:
     std::vector<Animal> _animals;
-    int _freeSlots;
+    int _initFreeSlots;
 
 };
 

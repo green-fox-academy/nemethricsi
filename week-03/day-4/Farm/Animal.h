@@ -9,6 +9,8 @@ class Animal
 public:
     Animal(std::string name);
 
+    Animal(std::string, int hunger);
+
     void eat();
 
     void drink();

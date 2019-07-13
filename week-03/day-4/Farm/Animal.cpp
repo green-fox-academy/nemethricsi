@@ -7,6 +7,12 @@ Animal::Animal(std::string name) : _name(name), _hunger(50), _thirst(50)
     std::cout << std::endl;
 }
 
+Animal::Animal(std::string name, int hunger) : _name(name), _hunger(hunger), _thirst(50)
+{
+    std::cout << "Constructor ran with 2 parameters" << std::endl;
+    std::cout << std::endl;
+}
+
 void Animal::eat()
 {
     _hunger--;

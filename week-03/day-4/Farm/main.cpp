@@ -13,11 +13,13 @@ void printAnimals(std::vector<Animal> vec);
 
 int main()
 {
-    Animal tiger("TIGER");
-    Animal rabbit("RABBIT");
-    Animal fox("FOX");
+    Animal tiger("TIGER", 10);
+    Animal rabbit("RABBIT", 40);
+    Animal fox("FOX", 40);
 
-    Farm theFarm;
+    Farm theFarm(10);
+
+    std::cout << theFarm.getFreeSlots() << std::endl;
 
     theFarm.add(tiger);
     theFarm.add(rabbit);
@@ -26,14 +28,21 @@ int main()
     std::vector<Animal> animals = theFarm.getAnimals();
     printAnimals(animals);
 
+    std::cout << theFarm.getFreeSlots() << std::endl;
+
+    theFarm.add(theFarm.breed("BUNNY"));
+
+    theFarm.slaughter();
 
 
     return 0;
 }
 
-void printAnimals(std::vector<Animal> vec){
+void printAnimals(std::vector<Animal> vec)
+{
     for (int i = 0; i < vec.size(); ++i) {
-        std::cout << vec[i].getName() << ", hunger: " << vec[i].getHunger() << ", thirst: " << vec[i].getThirst() << std::endl;
+        std::cout << vec[i].getName() << ", hunger: " << vec[i].getHunger() << ", thirst: " << vec[i].getThirst()
+                  << std::endl;
         std::cout << std::endl;
     }
 }
