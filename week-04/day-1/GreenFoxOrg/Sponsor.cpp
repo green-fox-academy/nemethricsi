@@ -17,8 +17,8 @@ Sponsor::Sponsor() : _company("Google"), _hiredStudents(0)
 
 void Sponsor::introduce()
 {
-    std::cout << "Hi, I'm " << _name << ", a " << _age << " year old " << genderToString(_gender) << " who represents "
-              << _company << " and hired " << _hiredStudents << " students so far." << std::endl;
+    std::cout << getIntroduceText() << " who represents " << _company << " and hired " << _hiredStudents
+              << " students so far." << std::endl;
 }
 
 void Sponsor::hire()

@@ -30,6 +30,5 @@ void Mentor::getGoal()
 
 void Mentor::introduce()
 {
-    std::cout << "Hi, I'm " << _name << ", a " << _age << " year old " << genderToString(_gender)
-              << levelToString(_level) << " mentor." << std::endl;
+    std::cout << getIntroduceText() << " " << levelToString(_level) << " mentor." << std::endl;
 }

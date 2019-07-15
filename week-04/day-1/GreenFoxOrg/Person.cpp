@@ -13,7 +13,12 @@ Person::Person() : _name("Jane Doe"), _age(30), _gender(Gender::FEMALE)
 
 void Person::introduce()
 {
-    std::cout << "Hi, I'm " << _name << ", a " << _age << " year old " << genderToString(_gender) << "." << std::endl;
+    std::cout << getIntroduceText() << "." << std::endl;
+}
+
+std::string Person::getIntroduceText()
+{
+    return "Hi, I'm " + _name + ", a " + std::to_string(_age) + " year old " + genderToString(_gender);
 }
 
 void Person::getGoal()

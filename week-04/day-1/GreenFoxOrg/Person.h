@@ -20,6 +20,8 @@ public:
 
     virtual void introduce();
 
+    std::string getIntroduceText();
+
     virtual void getGoal();
 
     const std::string &getName() const;

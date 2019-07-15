@@ -19,8 +19,7 @@ void Student::getGoal()
 
 void Student::introduce()
 {
-    std::cout << "Hi, I'm " << _name << ", a " << _age << " year old " << genderToString(_gender) << "." << " from "
-              << _previousOrganization << " who skipped " << _skippedDays
+    std::cout << getIntroduceText() << " from " << _previousOrganization << " who skipped " << _skippedDays
               << " days from the course already." << std::endl;
 }
 
