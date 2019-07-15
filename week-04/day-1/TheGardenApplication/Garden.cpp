@@ -4,7 +4,7 @@
 #include "Flower.h"
 #include "Tree.h"
 
-Garden::Garden(const std::string &name) : _name(name)
+Garden::Garden()
 {}
 
 void Garden::addPlant(Plant *plant)

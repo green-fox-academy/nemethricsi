@@ -5,7 +5,7 @@
 class Tree : public Plant
 {
 public:
-    Tree(Type type, const std::string &color, float currentWaterAmount);
+    Tree(Type type, const std::string &color);
 
     bool isWaterNeeded() override;
 

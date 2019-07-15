@@ -8,7 +8,7 @@
 class Garden
 {
 public:
-    Garden(const std::string &name);
+    Garden();
 
     void addPlant(Plant *plant);
 
@@ -17,9 +17,7 @@ public:
     void toWater(float water);
 
 private:
-    std::string _name;
     std::vector<Plant *> _plants;
-
 };
 
 

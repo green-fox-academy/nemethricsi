@@ -10,11 +10,11 @@ enum class Type
 class Plant
 {
 public:
-    Plant(Type type, const std::string &color, float currentWaterAmount);
+    Plant(Type type, const std::string &color);
 
-    virtual bool isWaterNeeded();
+    virtual bool isWaterNeeded() = 0; //pure virtual function
 
-    virtual void toWater(float water);
+    virtual void toWater(float water) = 0;
 
     std::string typeToString(Type type);
 

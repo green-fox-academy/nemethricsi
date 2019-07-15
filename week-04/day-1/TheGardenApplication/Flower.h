@@ -5,7 +5,7 @@
 class Flower : public Plant
 {
 public:
-    Flower(Type type, const std::string &color, float currentWaterAmount);
+    Flower(Type type, const std::string &color);
 
     bool isWaterNeeded() override;
 

@@ -4,20 +4,8 @@
 #include "Flower.h"
 #include "Tree.h"
 
-Plant::Plant(Type type, const std::string &color, float currentWaterAmount) : _type(type), _color(color),
-                                                                              _currentWaterAmount(currentWaterAmount)
+Plant::Plant(Type type, const std::string &color) : _type(type), _color(color), _currentWaterAmount(0)
 {}
-
-bool Plant::isWaterNeeded()
-{
-    return false;
-}
-
-void Plant::toWater(float water)
-{
-    _currentWaterAmount += water;
-
-}
 
 std::string Plant::typeToString(Type type)
 {

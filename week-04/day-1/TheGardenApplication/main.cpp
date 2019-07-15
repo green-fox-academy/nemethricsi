@@ -7,15 +7,15 @@
 
 int main()
 {
-    Garden eden("Eden");
+    Garden eden;
 
-    Flower yellowFlower(Type::FLOWER, "yellow", 0);
+    Flower yellowFlower(Type::FLOWER, "yellow");
     eden.addPlant(&yellowFlower);
-    Flower blueFlower(Type::FLOWER, "blue", 0);
+    Flower blueFlower(Type::FLOWER, "blue");
     eden.addPlant(&blueFlower);
-    Tree purpleTree(Type::TREE, "purple", 0);
+    Tree purpleTree(Type::TREE, "purple");
     eden.addPlant(&purpleTree);
-    Tree orangeTree(Type::TREE, "orange", 0);
+    Tree orangeTree(Type::TREE, "orange");
     eden.addPlant(&orangeTree);
 
     eden.printWhoNeedsWater();

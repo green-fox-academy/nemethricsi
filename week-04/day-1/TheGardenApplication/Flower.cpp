@@ -4,7 +4,7 @@
 #include "Flower.h"
 #include "Tree.h"
 
-Flower::Flower(Type type, const std::string &color, float currentWaterAmount) : Plant(type, color, currentWaterAmount)
+Flower::Flower(Type type, const std::string &color) : Plant(type, color)
 {}
 
 bool Flower::isWaterNeeded()
