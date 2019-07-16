@@ -4,6 +4,15 @@
 
 class ElectricGuitar : public StringedInstrument
 {
+public:
+    ElectricGuitar();
+
+    ElectricGuitar(int numberOfStrings);
+
+    std::string sound() override;
+
+private:
+    std::string _sound;
 
 };
 

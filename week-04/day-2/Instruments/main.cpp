@@ -5,7 +5,7 @@
 #include "BassGuitar.h"
 #include "Violin.h"
 
-int main( int argc, char* args[] )
+int main(int argc, char *args[])
 {
 
     std::cout << "Test 1, create Electric Guitar, Bass Guitar and Violin with default strings." << std::endl;
@@ -13,7 +13,7 @@ int main( int argc, char* args[] )
     BassGuitar bassGuitar;
     Violin violin;
 
-    std::cout<< "Test 1 Play" << std::endl;
+    std::cout << "Test 1 Play" << std::endl;
     guitar.play();
     bassGuitar.play();
     violin.play();
