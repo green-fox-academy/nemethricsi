@@ -2,7 +2,7 @@
 # add_compile_definitions(WINVER=0x0500)
 
 # Add all your .cpp files here (separated by spaces)
-add_executable(${PROJECT_TESTS_NAME} appleTest.cpp testFixtureTest.cpp) #here define the test cpp
+add_executable(${PROJECT_TESTS_NAME} appleTest.cpp testFixtureTest.cpp anagramTest.cpp) #here define the test cpp
 
 # These lines include and link the GoogleTest libraries and your own library to the test executable
 add_subdirectory(${PATH_TO_GOOGLETEST} ${CMAKE_CURRENT_BINARY_DIR}/googletest)
