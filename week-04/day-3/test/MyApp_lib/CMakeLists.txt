@@ -1,1 +1,1 @@
-add_library(${PROJECT_LIB_NAME} Apple.h Apple.cpp)
+add_library(${PROJECT_LIB_NAME} Apple.h Apple.cpp TestFixture.cpp TestFixture.h)
