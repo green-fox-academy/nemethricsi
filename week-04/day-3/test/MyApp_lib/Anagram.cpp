@@ -3,7 +3,7 @@
 #include <string>
 #include <map>
 
-std::map<char, int> Anagram::stringToMap(std::string word){
+std::map<char, int> stringToMap(std::string word){
     std::map<char, int> mapWord;
     for (int i = 0; i < word.size(); ++i) {
         if(mapWord.find(word.at(i)) != mapWord.end()){
@@ -15,7 +15,7 @@ std::map<char, int> Anagram::stringToMap(std::string word){
     return mapWord;
 }
 
-bool Anagram::areTheyAnagrams(std::string word1, std::string word2)
+bool areTheyAnagrams(std::string word1, std::string word2)
 {
     if(word1.size() != word2.size()) {
         return false;

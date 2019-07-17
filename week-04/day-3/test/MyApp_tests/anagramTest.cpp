@@ -1,9 +1,22 @@
 #include "Anagram.h"
 #include <gtest/gtest.h>
 
-int main(int argc, char *args[])
-{
-    std::cout << areTheyAnagrams("alma", "aalm") << std::endl;
+TEST(anagram_check, anagrams){
+    EXPECT_EQ(areTheyAnagrams("apple", "pplea"), 1);
+}
 
-    return 0;
+TEST(anagram_check, not_anagrams){
+    EXPECT_EQ(areTheyAnagrams("apple", "prlea"), 0);
+}
+
+TEST(anagram_check, empty_string){
+    EXPECT_EQ(areTheyAnagrams("apple", ""), 0);
+}
+
+TEST(anagram_check, empty_strings){
+    EXPECT_EQ(areTheyAnagrams("", ""), 1);
+}
+
+TEST(anagram_check, empty_string_whitespace){
+    EXPECT_EQ(areTheyAnagrams(" ", ""), 0);
 }
