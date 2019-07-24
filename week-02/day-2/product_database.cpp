@@ -8,7 +8,7 @@
 // Is there anything we can buy for exactly 125?
 // What is the cheapest product?
 
-void howMuchIsthat(std::map<std::string, int> map, std::string);
+void howMuchIsthat(std::map<std::string, int> map, const std::string&);
 
 std::pair<std::string, int> whatIsTheMostExpensive(std::map<std::string, int> map);
 
@@ -17,6 +17,8 @@ float showAvgPrice(std::map<std::string, int> map);
 int howManyIsBelow(std::map<std::string, int> map, int price);
 
 bool isThereAnythingWithPrice(std::map<std::string, int> map, int price);
+
+std::pair<std::string, int> whatIsTheCheapest(std::map<std::string, int> map);
 
 int main(int argc, char *args[])
 {
@@ -33,19 +35,22 @@ int main(int argc, char *args[])
 
     std::cout << "The most expensive product is: " << whatIsTheMostExpensive(productDatabase).first << std::endl;
 
-    std::cout << "The average price in the database is: " << showAvgPrice(productDatabase) << " potatoes." << std::endl;
+    std::cout << "The average price in the database is: " << showAvgPrice(productDatabase) << std::endl;
 
-    std::cout << "There are " << howManyIsBelow(productDatabase, 300) << " products which are below 300." << std::endl;
+    std::cout << "There are " << howManyIsBelow(productDatabase, 300) << " products which are below 300." << std::endl;
 
-    std::cout << "Is there anything with for 125 potatoes? " << std::boolalpha << isThereAnythingWithPrice(productDatabase, 125) << std::endl;
+    std::cout << "Is there anything with for 125? " << std::boolalpha << isThereAnythingWithPrice(productDatabase, 125)
+              << std::endl;
 
-    std::cout << "Richard Nemeth" << std::endl;
+    std::pair<std::string, int> cheapest = whatIsTheCheapest(productDatabase);
+    std::cout << "The cheapest product in the database is: " << cheapest.first << " for " <<
+    cheapest.second << std::endl;
 
 
     return 0;
 }
 
-void howMuchIsthat(std::map<std::string, int> map, std::string product)
+void howMuchIsthat(std::map<std::string, int> map, const std::string& product)
 {
     std::cout << "The price of the " << product << " is " << map[product] << std::endl;
 }
@@ -63,33 +68,49 @@ std::pair<std::string, int> whatIsTheMostExpensive(std::map<std::string, int> ma
     return p;
 }
 
-float showAvgPrice(std::map<std::string, int> map){
+float showAvgPrice(std::map<std::string, int> map)
+{
 
     int total = 0;
 
-    for(auto data : map){
+    for (auto data : map) {
         total += data.second;
     }
     return total / static_cast<float>(map.size());
 
 }
 
-int howManyIsBelow(std::map<std::string, int> map, int price){
+int howManyIsBelow(std::map<std::string, int> map, int price)
+{
 
     int counter = 0;
 
-    for(auto data : map){
-        if(data.second < price){
+    for (auto data : map) {
+        if (data.second < price) {
             counter++;
         }
     }
     return counter;
 }
 
-bool isThereAnythingWithPrice(std::map<std::string, int> map, int price){
-    for(auto data : map){
-        if(data.second == price)
+bool isThereAnythingWithPrice(std::map<std::string, int> map, int price)
+{
+    for (auto data : map) {
+        if (data.second == price)
             return true;
     }
     return false;
+}
+
+std::pair<std::string, int> whatIsTheCheapest(std::map<std::string, int> map)
+{
+    std::map<std::string, int>::iterator it;
+    std::pair<std::string, int> p = *map.begin(); //dereference
+
+    for (it = map.begin(); it != map.end(); it++) {
+        if (p.second > it->second) {
+            p = *it;
+        }
+    }
+    return p;
 }
