@@ -25,6 +25,10 @@ void Carrier::fill()
     int totalAmmoNeeded = 0;
     int ammoForOne = 0;
 
+    if (_storeOfAmmo <= 0) {
+        std::cout << "There is no ammo right now." << std::endl;
+    }
+
     for (auto &_aircraft : _aircrafts) {
         totalAmmoNeeded += _aircraft->getMaxAmmo() - _aircraft->getAmmo();
     }
