@@ -6,7 +6,7 @@
 std::map<char, int> stringToMap(std::string word){
     std::map<char, int> mapWord;
     for (int i = 0; i < word.size(); ++i) {
-        if(mapWord.find(word.at(i)) != mapWord.end()){
+        if(mapWord.find(word.at(i)) == mapWord.end()){
             mapWord.insert(std::make_pair(word.at(i), 1));
         } else {
             mapWord[word.at(i)] += 1;
