@@ -8,6 +8,7 @@ public:
     F16();
 
     std::string getType() override;
+
 };
 
 

@@ -31,8 +31,8 @@ public:
 
 protected:
     int _ammo;
-    int _maxAmmo{};
-    int _baseDamage{};
+    int _maxAmmo;
+    int _baseDamage;
     Type _type;
 };
 
