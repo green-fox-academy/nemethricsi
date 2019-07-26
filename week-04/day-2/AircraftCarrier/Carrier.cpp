@@ -20,15 +20,15 @@ void Carrier::reduceHp(int hp)
 
 void Carrier::fill()
 {
-    std::cout << "Carrier is filling..." << std::endl;
-
     int totalAmmoNeeded = 0;
     int ammoForOne = 0;
 
     if (_storeOfAmmo <= 0) {
         std::cout << "There is no ammo right now." << std::endl;
+        return;
     }
 
+    std::cout << "Carrier is filling..." << std::endl;
     for (auto &_aircraft : _aircrafts) {
         totalAmmoNeeded += _aircraft->getMaxAmmo() - _aircraft->getAmmo();
     }
