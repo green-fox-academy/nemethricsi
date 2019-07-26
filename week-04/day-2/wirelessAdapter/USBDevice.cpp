@@ -6,6 +6,4 @@
 
 
 USBDevice::USBDevice(int id, int usbType) : Device(id), _usbType(usbType)
-{
-    std::cout << "USBDevice constructor" << std::endl;
-}
+{}
