@@ -24,7 +24,9 @@ void Carrier::fill()
     int ammoForOne = 0;
 
     if (_storeOfAmmo <= 0) {
-        std::cout << "There is no ammo right now." << std::endl;
+        std::cout << "There is no ammo to fill right now." << std::endl;
+        std::cout << "Result: " << std::endl;
+        getStatus();
         return;
     }
 
@@ -47,7 +49,9 @@ void Carrier::fill()
             } else if (_aircraft->isPriority() && _storeOfAmmo < ammoForOne) {
                 _aircraft->refill(_storeOfAmmo);
                 _storeOfAmmo = 0; // =0 carrier is out of ammo
-                std::cout << "Carrier is out of ammo can't fill all the priority Aircrafts!" << std::endl;
+                std::cout << "Carrier is out of ammo can't fill even all the priority Aircrafts!" << std::endl;
+                std::cout << "Result: " << std::endl;
+                getStatus();
                 return;
             }
         }
@@ -59,6 +63,8 @@ void Carrier::fill()
                 _aircraft->refill(_storeOfAmmo);
                 _storeOfAmmo = 0;
                 std::cout << "Carrier is out of ammo can't fill all the F-16 Aircrafts!" << std::endl;
+                std::cout << "Result: " << std::endl;
+                getStatus();
                 return;
             }
         }
