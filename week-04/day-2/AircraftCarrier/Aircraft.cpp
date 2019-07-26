@@ -29,16 +29,6 @@ int Aircraft::refill(int amount)
 
 }
 
-std::string Aircraft::getType()
-{
-    switch (_type) {
-        case Type::F16:
-            return "F-16";
-        case Type::F35:
-            return "F-35";
-    }
-}
-
 std::string Aircraft::getStatus()
 {
     return "Type " + getType() + ", Ammo: " + std::to_string(_ammo) + ", Base Damage: " + std::to_string(_baseDamage) +

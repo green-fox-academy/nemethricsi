@@ -17,7 +17,7 @@ public:
 
     int refill(int amount);
 
-    std::string getType();
+    virtual std::string getType() = 0;
 
     std::string getStatus();
 
@@ -31,8 +31,8 @@ public:
 
 protected:
     int _ammo;
-    int _maxAmmo;
-    int _baseDamage;
+    int _maxAmmo{};
+    int _baseDamage{};
     Type _type;
 };
 

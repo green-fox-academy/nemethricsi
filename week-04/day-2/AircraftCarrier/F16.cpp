@@ -11,3 +11,8 @@ F16::F16()
     _baseDamage = 30;
     _type = Type::F16;
 }
+
+std::string F16::getType()
+{
+    return "F-16";
+}

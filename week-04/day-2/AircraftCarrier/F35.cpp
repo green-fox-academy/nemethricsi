@@ -11,3 +11,8 @@ F35::F35()
     _baseDamage = 50;
     _type = Type::F35;
 }
+
+std::string F35::getType()
+{
+    return "F-35";
+}

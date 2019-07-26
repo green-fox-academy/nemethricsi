@@ -6,6 +6,8 @@ class F35 : public Aircraft
 {
 public:
     F35();
+
+    std::string getType() override;
 };
 
 

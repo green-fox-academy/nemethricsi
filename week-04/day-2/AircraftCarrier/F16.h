@@ -6,6 +6,8 @@ class F16 : public Aircraft
 {
 public:
     F16();
+
+    std::string getType() override;
 };
 
 
