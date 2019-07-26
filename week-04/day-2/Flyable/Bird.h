@@ -1,5 +1,6 @@
 #ifndef FLYABLE_BIRD_H
 #define FLYABLE_BIRD_H
+
 #include "Flyable.h"
 #include "Animal.h"
 
@@ -7,13 +8,13 @@ class Bird : public Flyable, public Animal
 {
 public:
 
-    Bird(const std::string &name, int age);
+    Bird(const std::string &name, int age, std::string type);
 
-    void land() override;
+    std::string land() override;
 
-    void fly() override;
+    std::string fly() override;
 
-    void takeOff() override;
+    std::string takeOff() override;
 
 };
 

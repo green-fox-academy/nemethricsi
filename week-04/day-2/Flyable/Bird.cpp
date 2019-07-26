@@ -1,19 +1,19 @@
 #include "Bird.h"
 
-Bird::Bird(const std::string &name, int age) : Animal(name, age)
+Bird::Bird(const std::string &name, int age, std::string type) : Animal(name, age), Flyable(type)
 {}
 
-void Bird::land()
+std::string Bird::land()
 {
-    std::cout << "I can land with my own feet" << std::endl;
+    return "land with my own feet";
 }
 
-void Bird::fly()
+std::string Bird::fly()
 {
-    std::cout << "I can fly with my own wings." << std::endl;
+    return "I can fly with my own wings.";
 }
 
-void Bird::takeOff()
+std::string Bird::takeOff()
 {
-    std::cout << "I can take off with my own energy." << std::endl;
+    return "I can take off with my own energy.";
 }

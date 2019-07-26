@@ -1,5 +1,6 @@
 #ifndef FLYABLE_HELICOPTER_H
 #define FLYABLE_HELICOPTER_H
+
 #include "Vehicle.h"
 #include "Flyable.h"
 
@@ -7,19 +8,13 @@ class Helicopter : public Flyable, public Vehicle
 {
 public:
 
-    Helicopter(int wheels, int speed, const std::string &color);
+    Helicopter(int wheels, int speed, const std::string &color, std::string type);
 
-    void land() override;
+    std::string land() override;
 
-    void fly() override;
+    std::string fly() override;
 
-    void takeOff() override;
-
-    int getWheels() override;
-
-    int getSpeed() override;
-
-    std::string &getColor() override;
+    std::string takeOff() override;
 
 };
 

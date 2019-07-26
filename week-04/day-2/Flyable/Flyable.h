@@ -1,15 +1,26 @@
 #ifndef FLYABLE_FLYABLE_H
 #define FLYABLE_FLYABLE_H
 
+#include <iostream>
+
 
 class Flyable
 {
 public:
-    virtual void land() = 0;
 
-    virtual void fly() = 0;
 
-    virtual void takeOff() = 0;
+    Flyable(const std::string &type);
+
+    std::string introduce();
+
+    virtual std::string land() = 0;
+
+    virtual std::string fly() = 0;
+
+    virtual std::string takeOff() = 0;
+
+protected:
+    std::string _type;
 };
 
 

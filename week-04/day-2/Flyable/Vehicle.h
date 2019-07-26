@@ -1,5 +1,6 @@
 #ifndef FLYABLE_VEHICLE_H
 #define FLYABLE_VEHICLE_H
+
 #include <iostream>
 
 
@@ -11,11 +12,12 @@ public:
 
     Vehicle(int wheels, int speed, const std::string &color);
 
-    virtual int getWheels() = 0;
+    int getWheels();
 
-    virtual int getSpeed() = 0;
+    int getSpeed();
 
-    virtual std::string &getColor() = 0;
+    std::string &getColor();
+
 
 protected:
     int _wheels;

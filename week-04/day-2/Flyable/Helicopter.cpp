@@ -1,35 +1,22 @@
 #include "Helicopter.h"
 #include <iostream>
 
-Helicopter::Helicopter(int wheels, int speed, const std::string &color) : Vehicle(wheels, speed, color)
+Helicopter::Helicopter(int wheels, int speed, const std::string &color, std::string type) : Vehicle(wheels, speed,
+                                                                                                    color),
+                                                                                            Flyable(type)
 {}
 
-void Helicopter::land()
+std::string Helicopter::land()
 {
-    std::cout << "I can land with a machine." << std::endl;
+    return "land with a machine.";
 }
 
-void Helicopter::fly()
+std::string Helicopter::fly()
 {
-    std::cout << "I can fly with machines." << std::endl;
+    return "I can fly with machines.";
 }
 
-void Helicopter::takeOff()
+std::string Helicopter::takeOff()
 {
-    std::cout << "I can take off with machines." << std::endl;
-}
-
-int Helicopter::getWheels()
-{
-    return Vehicle::getWheels();
-}
-
-int Helicopter::getSpeed()
-{
-    return Vehicle::getSpeed();
-}
-
-std::string &Helicopter::getColor()
-{
-    return Vehicle::getColor();
+    return "I can take off with machines.";
 }
