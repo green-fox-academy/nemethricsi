@@ -1,0 +1,63 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***    CONTAINER   ***/
+/**********************/
+
+.container {
+  height: 100vh;
+  margin: 20px 40px 30px 40px;
+}
+
+/**********************/
+/***     NAVBAR     ***/
+/**********************/
+
+.navbar {
+  background-color: #b02aff;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.nav-item {
+  background-color: #29eaff;
+  height: 40px;
+  margin-right: 15px;
+  width: 80px;
+}
+
+/**********************/
+/***  MAIN CONTENT  ***/
+/**********************/
+
+.content-container {
+  display: flex;
+}
+
+.main {
+  background-color: #ffd629;
+  height: 600px;
+  width: 70%;
+  align-self: flex-start;
+}
+
+.sidebar {
+  background-color: #51d400;
+  height: 600px;
+  width: 30%;
+  align-self: flex-end;
+}
