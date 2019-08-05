@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***  EXERCISE 2  ***/
+/**********************/
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.yellow {
+  background-color: #ffd629;
+  width: 70%;
+  height: 300px;
+  position: relative;
+}
+
+.purple {
+  background-color: #b02aff;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 100px;
+}
