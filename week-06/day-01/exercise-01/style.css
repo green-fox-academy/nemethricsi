@@ -1,0 +1,90 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***  EXERCISE 1.1  ***/
+/**********************/
+.container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+}
+
+.yellow {
+  background-color: #ffd629;
+}
+
+.green {
+  background-color: #51d400;
+}
+
+.purple {
+  background-color: #b02aff;
+}
+
+/**********************/
+/***  EXERCISE 1.2  ***/
+/**********************/
+
+.container-2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.yellow-2 {
+  background-color: #ffd629;
+  flex-basis: 50%;
+}
+
+.green-2 {
+  background-color: #51d400;
+  flex-basis: 25%;
+}
+
+.purple-2 {
+  background-color: #b02aff;
+  flex-basis: 25%;
+}
+
+/**********************/
+/***  EXERCISE 1.3  ***/
+/**********************/
+
+.container-3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.yellow-3 {
+  background-color: #ffd629;
+  flex-basis: 50%;
+}
+
+.green-3 {
+  background-color: #51d400;
+  flex-basis: 25%;
+  order: 1;
+}
+
+.purple-3 {
+  background-color: #b02aff;
+  flex-basis: 25%;
+  order: -1;
+}
