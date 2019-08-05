@@ -1,0 +1,75 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***  EXERCISE 3.1  ***/
+/**********************/
+
+.container {
+  background-color: #ffd629;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: #b02aff;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/**********************/
+/***  EXERCISE 3.2  ***/
+/**********************/
+
+.container-2 {
+  background-color: #ffd629;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.item-2 {
+  width: 100px;
+  height: 100px;
+  background-color: #b02aff;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/**********************/
+/***  EXERCISE 3.3  ***/
+/**********************/
+
+.container-3 {
+  background-color: #ffd629;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-left: 0;
+}
+
+.item-3 {
+  width: 100px;
+  height: 100px;
+  background-color: #b02aff;
+  display: inline-block;
+  margin-right: 8px;
+}
