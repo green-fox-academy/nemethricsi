@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***  EXERCISE 1.4  ***/
+/**********************/
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 100vh;
+}
+
+.yellow {
+  background-color: #ffd629;
+  order: 1;
+  flex-basis: 50%;
+}
+
+.green {
+  background-color: #51d400;
+  flex-basis: 25%;
+}
+
+.purple {
+  background-color: #b02aff;
+  flex-basis: 25%;
+}
