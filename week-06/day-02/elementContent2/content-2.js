@@ -11,7 +11,8 @@ for (let i = 0; i < oldList.length; i++) {
 // 2) change the <ul> element's background color to 'limegreen'
 //   - use css class to change the color instead of the style property
 let myList = document.querySelector('ul');
-myList.classList.add('limegreen');
+//myList.classList.add('limegreen');
+//OR with a button you can toggle the change:
 
-// let btn = document.querySelector('.button');
-// btn.onclick = () => myList.classList.toggle('limegreen');
+let btn = document.querySelector('.button');
+btn.onclick = () => myList.classList.toggle('limegreen');
