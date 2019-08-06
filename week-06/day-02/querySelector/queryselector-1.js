@@ -19,7 +19,7 @@ console.log(conceitedKing);
 //       in the 'noBusiness' variable.
 //       console.log each of them.
 let noBusiness = document.querySelectorAll('div.asteroid');
-for (let i = 0; i < conceitedKing2.length; i++) {
-  console.log(conceitedKing2[i]);
+for (let i = 0; i < noBusiness.length; i++) {
+  console.log(noBusiness[i]);
 }
-console.log(conceitedKing2.length);
+console.log(noBusiness.length);
