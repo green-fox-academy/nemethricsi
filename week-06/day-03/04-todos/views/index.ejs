@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todos</title>
+  </head>
+  <body>
+    <h1>Things to do today:</h1>
+    <ul>
+      <% for (let i = 0; i < list.length; i++){ %>
+      <li><h3><%= list[i] %></h3></li>
+      <%}%>
+    </ul>
+  </body>
+</html>
