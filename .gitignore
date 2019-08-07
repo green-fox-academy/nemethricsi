@@ -90,6 +90,4 @@ modules.xml
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/clion+all
-×
-Drag and Drop
-The image will be downloaded by Fatkun
+node_modules/
