@@ -1,0 +1,14 @@
+{
+  "name": "first-server",
+  "version": "1.0.0",
+  "description": "my first local server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Nemeth",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
