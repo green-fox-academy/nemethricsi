@@ -67,6 +67,18 @@ const cocktails = [
     price: 990,
     contains: ['peach schnapps', 'orange juice', 'cranberry juice'],
     isAlcoholic: false
+  },
+  {
+    name: 'LIMONADE',
+    price: 690,
+    contains: ['lemon juice', 'orange juice', 'sugar syrup'],
+    isAlcoholic: false
+  },
+  {
+    name: 'BEER',
+    price: 590,
+    contains: ['just beer man...'],
+    isAlcoholic: true
   }
 ];
 
