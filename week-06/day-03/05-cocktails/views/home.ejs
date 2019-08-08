@@ -15,6 +15,9 @@
   </head>
   <body>
     <h1>Cocktails</h1>
+
+    <!-- NAVIGATION AKA. ALCOHOL TYPES -->
+
     <ul class="list-group list-group-horizontal">
       <li class="list-group-item">
         <a href="/" class="btn btn-secondary">ALL</a>
@@ -26,20 +29,27 @@
         >
       </li>
       <% } %>
+      <li class="list-group-item">
+        <a href="?nonalcoholic=nonalcoholic" class="btn btn-secondary"
+          >Non-alcoholic</a
+        >
+      </li>
     </ul>
+
+    <!-- T A B L E -->
+
     <table class="table">
       <tr>
         <th>Name</th>
         <th>Price</th>
       </tr>
-
       <% for(let i = 0; i < cocktail.length; i++){ %>
       <tr>
         <td>
           <div>
             <%= cocktail[i].name %> <% if(!cocktail[i].isAlcoholic){%><span
               class="badge badge-info"
-              >non-alcoholic</span
+              ><a href="?nonalcoholic=nonalcoholic">non-alcoholic</a></span
             >
             <%}%>
           </div>
@@ -49,6 +59,8 @@
       </tr>
       <% } %>
     </table>
+
+    <!-- S C R I P T S -->
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

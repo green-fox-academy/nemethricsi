@@ -2,3 +2,10 @@ table,
 td {
   border: 1px solid black;
 }
+
+a,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}

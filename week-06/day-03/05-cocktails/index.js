@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     }
   } else if (!alcoholList.includes(req.query.alcohol)) {
     filteredCocktails = cocktails;
+  } else if (req.query.nonalcoholic === nonalcoholic) {
+    for (let i = 0; i < cocktails.length; i++) {
+      if (!cocktails[i].isAlcoholic) {
+        filteredCocktails.push(cocktails[i]);
+      }
+    }
   }
   res.render('home', { cocktail: filteredCocktails, alcohol: alcoholList });
 });
