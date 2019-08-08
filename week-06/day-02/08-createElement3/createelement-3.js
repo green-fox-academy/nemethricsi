@@ -22,10 +22,10 @@ for (let i = 0; i < kids.length; i++) {
   let newArticle = document.createElement('article');
 
   let owner = document.createElement('h3');
-  owner.innerHTML = kids[i].owner;
+  owner.textContent = kids[i].owner;
 
   let pet = document.createElement('p');
-  pet.innerHTML = kids[i].petName;
+  pet.textContent = kids[i].petName;
 
   newArticle.appendChild(owner);
   newArticle.appendChild(pet);
