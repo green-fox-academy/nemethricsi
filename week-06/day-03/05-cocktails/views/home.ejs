@@ -33,8 +33,11 @@
       <tr>
         <td>
           <div>
-            <%= cocktail[i].name %> <% if(!cocktail[i].isAlcoholic){%>
-            (non-alcoholic) <%}%>
+            <%= cocktail[i].name %> <% if(!cocktail[i].isAlcoholic){%><span
+              class="badge badge-info"
+              >non-alcoholic</span
+            >
+            <%}%>
           </div>
           <div><%= cocktail[i].contains %></div>
         </td>
