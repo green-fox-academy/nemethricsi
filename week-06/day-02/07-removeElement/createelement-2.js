@@ -33,16 +33,10 @@ document.querySelector('.asteroids').removeChild(document.querySelector('li'));
 // Only add the asteroids to the list.
 // Each list item should have its category as a class and its content as text content.
 
-let newList = [];
-
 for (let i = 0; i < planetData.length; i++) {
-  if (planetData[i].asteroid === true) {
-    newList.push(planetData[i].content);
+  if (planetData[i].asteroid) {
+    let newItem = document.createElement('li');
+    newItem.textContent = planetData[i].content;
+    document.querySelector('.asteroids').appendChild(newItem);
   }
-}
-
-for (let i = 0; i < newList.length; i++) {
-  let newItem = document.createElement('li');
-  newItem.innerHTML = newList[i];
-  document.querySelector('.asteroids').appendChild(newItem);
 }
