@@ -1,0 +1,11 @@
+@media only screen and (max-width: 915px) {
+  .textbox h1 {
+    font-size: 140%;
+    text-transform: capitalize;
+  }
+
+  .textbox p {
+    line-height: 1.5;
+    font-size: 80%;
+  }
+}
