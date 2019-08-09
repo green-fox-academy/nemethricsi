@@ -104,3 +104,16 @@ function turnThePage(direction) {
     }
   }
 }
+
+function onKeyPress(event) {
+  switch (event.keyCode) {
+    case 37:
+      turnThePage(-1);
+      break;
+    case 39:
+      turnThePage(1);
+      break;
+  }
+}
+
+document.body.addEventListener('keydown', onKeyPress);
