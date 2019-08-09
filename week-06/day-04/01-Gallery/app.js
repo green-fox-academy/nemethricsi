@@ -59,7 +59,7 @@ for (let i = 0; i < thumbnails.length; i++) {
   };
 }
 
-//init the main image
+//init the main image & text
 let mainImage = document.querySelector('.main-image');
 let title = document.querySelector('.textbox h1');
 title.textContent = pictures[0].alt;
@@ -72,41 +72,35 @@ mainImage.style.backgroundImage = 'url("/assets/images/0.jpg")';
 /*************************/
 
 document.querySelector('.prev').onclick = () => {
-  let currentImageUrl = document.querySelector('.main-image').style
-    .backgroundImage;
-
-  for (let i = 0; i < pictures.length; i++) {
-    if (currentImageUrl === `url("${pictures[0].url}")`) {
-      mainImage.style.backgroundImage = `url("${
-        pictures[pictures.length - 1].url
-      }")`;
-      title.textContent = pictures[pictures.length - 1].alt;
-      text.textContent = pictures[pictures.length - 1].text;
-    } else if (currentImageUrl === `url("${pictures[i].url}")`) {
-      mainImage.style.backgroundImage = `url("${pictures[i - 1].url}")`;
-      title.textContent = pictures[i - 1].alt;
-      text.textContent = pictures[i - 1].text;
-    }
-  }
+  turnThePage(-1);
 };
 document.querySelector('.next').onclick = () => {
-  //go to NEXT picture and thumbnail
-  // else if (currentImage === `url("${pictures[pictures.length - 1].url}")`) {
-  //   mainImage.style.backgroundImage = `url("${pictures[0].url}")`;
+  turnThePage(1);
+};
+
+function turnThePage(direction) {
   let currentImageUrl = document.querySelector('.main-image').style
     .backgroundImage;
+  const lastIndex = pictures.length - 1;
+  const indexFromZero = lastIndex - ((lastIndex - 1) * (direction + 1)) / 2;
+  const indexFromLast = indexFromZero - 1;
+
   for (let i = 0; i < pictures.length; i++) {
-    if (
-      currentImageUrl === `url("${pictures[i].url}")` &&
-      currentImageUrl !== `url("${pictures[pictures.length - 1].url}")`
-    ) {
-      mainImage.style.backgroundImage = `url("${pictures[i - 1].url}")`;
-      title.textContent = pictures[i - 1].alt;
-      text.textContent = pictures[i - 1].text;
-    } else {
-      mainImage.style.backgroundImage = `url("${pictures[0].url}")`;
-      title.textContent = pictures[0].alt;
-      text.textContent = pictures[0].text;
+    // if you are on the first picture
+    if (currentImageUrl === `url("${pictures[0].url}")`) {
+      mainImage.style.backgroundImage = `url("${pictures[indexFromZero].url}")`;
+      title.textContent = pictures[indexFromZero].alt;
+      text.textContent = pictures[indexFromZero].text;
+      //if you are on the last picture
+    } else if (currentImageUrl === `url("${pictures[lastIndex].url}")`) {
+      mainImage.style.backgroundImage = `url("${pictures[indexFromLast].url}")`;
+      title.textContent = pictures[indexFromLast].alt;
+      text.textContent = pictures[indexFromLast].text;
+      //other
+    } else if (currentImageUrl === `url("${pictures[i].url}")`) {
+      mainImage.style.backgroundImage = `url("${pictures[i + direction].url}")`;
+      title.textContent = pictures[i + direction].alt;
+      text.textContent = pictures[i + direction].text;
     }
   }
-};
+}
