@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>JavaScript image slider</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <title>JavaScript image slider</title>
-</head>
-
-<body>
-  <div class="main">
-    <div class="container">
-      <div class="container-slider">
-        <div class="slider-element arrow prev">
-          <!-- <img
-              class="arrow-icon"
-              src="/assets/images/arrow.svg"
-              alt="arrow"
-            /> -->
-        </div>
-        <div class="slider-element main-image">
-          <div class="slider-element textbox">
-            <h1></h1>
-            <p></p>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="container-slider">
+          <div class="arrow prev">
+            <div class="img-holder"></div>
+          </div>
+          <div class="main-image">
+            <div class="textbox">
+              <h1>Image title</h1>
+              <p>Image description</p>
+            </div>
+          </div>
+          <div class="arrow next">
+            <div class="img-holder-rev"></div>
           </div>
         </div>
-        <div class="slider-element arrow next"></div>
-      </div>
-      <div class="thumbnail-container">
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
+        <div class="thumbnail-container">
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="app.js"></script>
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>

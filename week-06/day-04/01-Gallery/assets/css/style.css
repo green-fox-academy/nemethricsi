@@ -1,6 +1,6 @@
-/**********************/
-/***   BOX-SIZING   ***/
-/**********************/
+/******************************/
+/***       BOX-SIZING       ***/
+/******************************/
 
 html {
   box-sizing: border-box;
@@ -18,9 +18,9 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/**********************/
-/***     GENERAL    ***/
-/**********************/
+/******************************/
+/***         GENERAL        ***/
+/******************************/
 
 body {
   background: rgb(244, 244, 244);
@@ -55,33 +55,55 @@ body {
   box-shadow: 0 10px 6px -6px #777;
 }
 
+/******************************/
+/***         ARROWS         ***/
+/******************************/
+
 .arrow {
   flex-basis: 10%;
   background-color: #fdfdfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrow:hover {
   background-color: #e4e4e4;
 }
 
-.arrow:active{
+.arrow:active {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(.5px);
+  transform: translateY(0.5px);
+}
+
+.img-holder {
+  background-image: url('/assets/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+}
+
+.img-holder-rev {
+  background-image: url('/assets/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  transform: rotate(180deg);
 }
 
 .main-image {
   flex-basis: 80%;
   background-size: cover;
-  position: relative;
+  display: flex;
+  align-items: flex-end;
 }
 
-.textbox{
-  position: absolute;
+.textbox {
   width: 100%;
   height: 150px;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
   padding: 15px;
 }
@@ -95,9 +117,9 @@ body {
   line-height: 1.7;
 }
 
-/**********************/
-/***   THUMBNAILS   ***/
-/**********************/
+/******************************/
+/***       THUMBNAILS       ***/
+/******************************/
 
 .thumbnail-container {
   display: flex;
@@ -122,10 +144,10 @@ body {
   transform: translateY(-1px);
   /* transform: scale(1.15); */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s;  
+  transition: all 0.5s;
 }
 
-.thumbnail:active{
+.thumbnail:active {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(1px);
   transition: all 0.05s;
