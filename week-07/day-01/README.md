@@ -2,9 +2,9 @@
 
 
 1. [Databases](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#1-show-all-the-databases-you-have)
-5. [CREATE a Tables](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
-6. [Describe a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
-7. [Insert to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
+5. [CREATE a Table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
+6. [Show description of a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
+7. [Insert record to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
 8. [READ from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
 10. [Primary Key](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#10-primary-key-event_id-student_id)
 15. [WHERE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#15-where)
