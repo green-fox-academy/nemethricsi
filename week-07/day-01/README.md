@@ -1,3 +1,7 @@
+### 0. Login to MYSQL in command Tables_in_test3
+
+`mysql -u root -p`
+
 ### 1. Show all the databases you have
 ```SQL
 mysql> SHOW DATABASES;
@@ -93,7 +97,7 @@ mysql> CREATE TABLE student(
     -> date_entered TIMESTAMP, #YYYYMMDDHHMMSS
     -> lunch_cost FLOAT NULL,
     -> student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
-    
+
     Query OK, 0 rows affected (0.03 sec)
 ```
 ```SQL
@@ -325,8 +329,8 @@ mysql> SHOW TABLES;
 
 mysql> RENAME TABLE
     -> absence to absences,
-    -> class to classes, 
-    -> score to scores, 
+    -> class to classes,
+    -> score to scores,
     -> student to students,
     -> test to tests;
 Query OK, 0 rows affected (0.07 sec)
@@ -379,7 +383,7 @@ mysql> SELECT first_name, last_name, birth_date
 mysql> SELECT last_name, state, birth_date
     -> FROM students
     -> WHERE DAY(birth_date) >= 12 && (state = "CA" || state = "NV");
-    
+
 +-----------+-------+------------+
 | last_name | state | birth_date |
 +-----------+-------+------------+
@@ -388,7 +392,7 @@ mysql> SELECT last_name, state, birth_date
 | Moran     | CA    | 1954-11-27 |
 +-----------+-------+------------+
 3 rows in set, 2 warnings (0.00 sec)
-    
+
 ```
 
 ### 16. IS NULL / IS NOT NULL (~boolean)
@@ -549,4 +553,130 @@ mysql> SELECT last_name, first_name
 | Brennan   | Andy       |
 +-----------+------------+
 2 rows in set (0.00 sec)
+```
+
+### 22. DISTINCT
+##### Only showing a data once (filter duplicates)
+
+```SQL
+mysql> SELECT DISTINCT state
+    -> FROM students
+    -> ORDER BY state;
++-------+
+| state |
++-------+
+| AZ    |
+| CA    |
+| IA    |
+| MI    |
+| NC    |
+| NV    |
+| NY    |
+| WA    |
++-------+
+8 rows in set (0.00 sec)
+```
+
+##### DISTINCT with COUNT
+
+```SQL
+mysql> SELECT COUNT(DISTINCT state)
+    -> FROM students;
++-----------------------+
+| COUNT(DISTINCT state) |
++-----------------------+
+|                     8 | # students come from 8 states in total.
++-----------------------+
+1 row in set (0.00 sec)
+```
+
+### 23. COUNT ( * )
+##### Showing the number of records
+
+```SQL
+mysql> SELECT COUNT(*)
+    -> FROM students;
++----------+
+| COUNT(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.00 sec)
+```
+
+### 24. GROUP BY
+
+```SQL
+mysql> SELECT sex, COUNT(*)
+    -> FROM students
+    -> GROUP BY sex;
++-----+----------+
+| sex | COUNT(*) |
++-----+----------+
+| M   |        6 |
+| F   |        4 |
++-----+----------+
+2 rows in set (0.06 sec)
+```
+
+```SQL
+mysql> SELECT Month(birth_date) AS "Month", COUNT(*)
+    -> FROM students
+    -> GROUP BY Month
+    -> ORDER BY Month;
++-------+----------+
+| Month | COUNT(*) |
++-------+----------+
+|     1 |        2 |
+|     2 |        2 |
+|     3 |        1 |
+|     5 |        1 |
+|    11 |        1 |
+|    12 |        3 |
++-------+----------+
+6 rows in set (0.05 sec)
+```
+
+```SQL
+mysql> SELECT state, COUNT(state) AS "Amount"
+    -> FROM students
+    -> GROUP BY state
+    -> HAVING Amount > 1;
++-------+--------+
+| state | Amount |
++-------+--------+
+| WA    |      2 |
+| CA    |      2 |
++-------+--------+
+2 rows in set (0.00 sec)
+```
+
+```SQL
+mysql> SELECT
+    -> test_id AS "Test",
+    -> MIN(score) AS "min",
+    -> MAX(score) AS "max",
+    -> MAX(score)-MIN(score) AS "range",
+    -> SUM(score) AS "total",
+    -> AVG(score) AS "average"
+    -> FROM scores
+    -> GROUP BY test_id;
++------+------+------+-------+-------+---------+
+| Test | min  | max  | range | total | average |
++------+------+------+-------+-------+---------+
+|    1 |   13 |   15 |     2 |   143 | 14.3000 |
+|    2 |   13 |   14 |     1 |   121 | 13.4444 |
+|    3 |   18 |   28 |    10 |   228 | 25.3333 |
+|    4 |   23 |   29 |     6 |   267 | 26.7000 |
+|    5 |   12 |   15 |     3 |   134 | 13.4000 |
+|    6 |   22 |   27 |     5 |   232 | 25.7778 |
++------+------+------+-------+-------+---------+
+6 rows in set (0.01 sec)
+```
+
+### 25.
+#####
+
+```SQL
+
 ```
