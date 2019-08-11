@@ -198,7 +198,7 @@ mysql> SELECT * FROM class;
 ```
 
 ### 10. PRIMARY KEY (event_id, student_id)
-##### Create Primary key by concatenating two Foreign IDs.
+##### Create two primary keys
 
 ```SQL
 mysql> CREATE TABLE score(
@@ -662,7 +662,7 @@ mysql>  SELECT * FROM absences;
 
 ### 26. MODIFY a column
 
-```MYSQL
+```SQL
 mysql> DESCRIBE absences;
 +------------+------------------+------+-----+---------+-------+
 | Field      | Type             | Null | Key | Default | Extra |
@@ -699,4 +699,243 @@ mysql> DESCRIBE absences;
 | student_id | int(10) unsigned | NO   | PRI | NULL    |       |
 | date       | date             | NO   | PRI | NULL    |       |
 +------------+------------------+------+-----+---------+-------+
+```
+
+### 28. UPDATE a record
+
+```SQL
+mysql> SELECT * FROM scores WHERE student_id = 4;
++------------+---------+-------+
+| student_id | test_id | score |
++------------+---------+-------+
+|          4 |       1 |    15 |
+|          4 |       2 |    14 |
+|          4 |       3 |    27 |
+|          4 |       4 |    27 |
+|          4 |       5 |    15 |
+|          4 |       6 |    27 |
++------------+---------+-------+
+
+
+mysql> UPDATE scores SET score = 25
+    -> WHERE student_id = 4 AND test_id = 3;
+
+mysql> SELECT * FROM scores WHERE student_id = 4;
++------------+---------+-------+
+| student_id | test_id | score |
++------------+---------+-------+
+|          4 |       1 |    15 |
+|          4 |       2 |    14 |
+|          4 |       3 |    25 |
+|          4 |       4 |    27 |
+|          4 |       5 |    15 |
+|          4 |       6 |    27 |
++------------+---------+-------+
+```
+
+### 29. BETWEEN
+
+```SQL
+mysql> SELECT first_name, last_name, birth_date
+    -> FROM students
+    -> WHERE birth_date
+    -> BETWEEN "1960-01-01" AND "1970-01-01";
++------------+-----------+------------+
+| first_name | last_name | birth_date |
++------------+-----------+------------+
+| Bobby      | Briggs    | 1967-05-24 |
+| Audrey     | Horne     | 1965-02-01 |
+| James      | Hurley    | 1967-01-02 |
+| Andy       | Brennan   | 1960-12-27 |
++------------+-----------+------------+
+```
+
+### 30. IN
+##### List when the db is includes the search term
+
+```SQL
+mysql> SELECT first_name, last_name
+    -> FROM students
+    -> WHERE first_name IN ("Bobby", "Lucy", "Andy");
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| Bobby      | Briggs    |
+| Lucy       | Moran     |
+| Andy       | Brennan   |
++------------+-----------+
+```
+
+### 31. JOIN
+##### Combine data from multiple different tables
+
+```SQL
+mysql> SELECT * FROM tests;
++------------+------+----------+----------+---------+
+| date       | type | maxscore | class_id | test_id |
++------------+------+----------+----------+---------+
+| 2014-08-25 | Q    |       15 |        1 |       1 |
+| 2014-08-27 | Q    |       15 |        1 |       2 |
+| 2014-08-29 | T    |       30 |        1 |       3 |
+| 2014-08-29 | T    |       30 |        2 |       4 |
+| 2014-08-27 | Q    |       15 |        4 |       5 |
+| 2014-08-29 | T    |       30 |        4 |       6 |
++------------+------+----------+----------+---------+
+
+mysql> SELECT * FROM scores;
++------------+---------+-------+
+| student_id | test_id | score |
++------------+---------+-------+
+|          1 |       1 |    15 |
+|          2 |       1 |    15 |
+|          3 |       1 |    14 |
+|          4 |       1 |    15 |
+|          5 |       1 |    14 |
+................................
+................................
+................................
++------------+---------+-------+
+```
+##### Combining scores and tests tables based on the common `test_id`:
+
+```SQL
+mysql> SELECT scores.student_id, tests.date, scores.score, tests.maxscore
+    -> FROM tests, scores
+    -> WHERE date = "2014-08-25"
+    -> AND tests.test_id = scores.test_id;
++------------+------------+-------+----------+
+| student_id | date       | score | maxscore |
++------------+------------+-------+----------+
+|          1 | 2014-08-25 |    15 |       15 |
+|          2 | 2014-08-25 |    15 |       15 |
+|          3 | 2014-08-25 |    14 |       15 |
+|          4 | 2014-08-25 |    15 |       15 |
+|          5 | 2014-08-25 |    14 |       15 |
+|          6 | 2014-08-25 |    13 |       15 |
+|          7 | 2014-08-25 |    13 |       15 |
+|          8 | 2014-08-25 |    14 |       15 |
+|          9 | 2014-08-25 |    15 |       15 |
+|         10 | 2014-08-25 |    15 |       15 |
++------------+------------+-------+----------+
+```
+
+### 32. Combining 3 tables
+
+```SQL
+mysql> SELECT CONCAT(students.first_name, " ", students.last_name) AS "Name",
+    -> tests.date, scores.score, tests.maxscore
+    -> FROM tests, scores, students
+    -> WHERE tests.date = "2014-08-25"
+    -> AND tests.test_id = scores.test_id
+    -> AND scores.student_id = students.student_id;
++----------------+------------+-------+----------+
+| Name           | date       | score | maxscore |
++----------------+------------+-------+----------+
+| Dale Cooper    | 2014-08-25 |    15 |       15 |
+| Harry Truman   | 2014-08-25 |    15 |       15 |
+| Shelly Johnson | 2014-08-25 |    14 |       15 |
+| Bobby Briggs   | 2014-08-25 |    15 |       15 |
+| Donna Hayward  | 2014-08-25 |    14 |       15 |
+| Audrey Horne   | 2014-08-25 |    13 |       15 |
+| James Hurley   | 2014-08-25 |    13 |       15 |
+| Lucy Moran     | 2014-08-25 |    14 |       15 |
+| Tommy Hill     | 2014-08-25 |    15 |       15 |
+| Andy Brennan   | 2014-08-25 |    15 |       15 |
++----------------+------------+-------+----------+
+```
+
+##### other example:
+
+```SQL
+mysql> SELECT students.student_id,
+    -> CONCAT(students.first_name, " ", students.last_name) AS "Name",
+    -> COUNT(absences.date) AS "Absences"
+    -> FROM students, absences
+    -> WHERE students.student_id = absences.student_id
+    -> GROUP BY students.student_id;
+
++------------+--------------+----------+
+| student_id | Name         | Absences |
++------------+--------------+----------+
+|          7 | James Hurley |        1 |
+|          8 | Lucy Moran   |        1 |
++------------+--------------+----------+
+```
+
+### 33. LEFT JOIN
+##### If we need to include all information from the table listed first "FROM students", even if it doesn't exist in the table on the right "LEFT JOIN absences", we can use a LEFT JOIN.
+
+
+```SQL
+mysql> SELECT students.student_id,
+    -> CONCAT(students.first_name, " ", students.last_name) AS "Name",
+    -> COUNT(absences.date) AS "Absences"
+
+    -> FROM students LEFT JOIN absences
+
+    -> ON students.student_id = absences.student_id
+    -> GROUP BY students.student_id;
++------------+----------------+----------+
+| student_id | Name           | Absences |
++------------+----------------+----------+
+|          1 | Dale Cooper    |        0 |
+|          2 | Harry Truman   |        0 |
+|          3 | Shelly Johnson |        0 |
+|          4 | Bobby Briggs   |        0 |
+|          5 | Donna Hayward  |        0 |
+|          6 | Audrey Horne   |        0 |
+|          7 | James Hurley   |        1 |
+|          8 | Lucy Moran     |        1 |
+|          9 | Tommy Hill     |        0 |
+|         10 | Andy Brennan   |        0 |
++------------+----------------+----------+
+```
+
+### 34. INNER JOIN
+##### lists all the rows of data from the tables and put them together
+
+```SQL
+mysql> SELECT students.first_name,
+    -> students.last_name.
+    -> scores.test_id,
+    -> scores.score
+    -> FROM students
+    -> INNER JOIN scores
+    -> ON students.student_id = scores.student_id
+    -> WHERE scores.score <= 15
+    -> ORDER BY scores.test_id;
+
++------------+-----------+---------+-------+
+| first_name | last_name | test_id | score |
++------------+-----------+---------+-------+
+| Dale       | Cooper    |       1 |    15 |
+| Harry      | Truman    |       1 |    15 |
+| Shelly     | Johnson   |       1 |    14 |
+| Bobby      | Briggs    |       1 |    15 |
+| Donna      | Hayward   |       1 |    14 |
+| Audrey     | Horne     |       1 |    13 |
+| James      | Hurley    |       1 |    13 |
+| Lucy       | Moran     |       1 |    14 |
+| Tommy      | Hill      |       1 |    15 |
+| Andy       | Brennan   |       1 |    15 |
+| Dale       | Cooper    |       2 |    14 |
+| Harry      | Truman    |       2 |    14 |
+| Shelly     | Johnson   |       2 |    14 |
+| Bobby      | Briggs    |       2 |    14 |
+| Donna      | Hayward   |       2 |    13 |
+| Audrey     | Horne     |       2 |    13 |
+| James      | Hurley    |       2 |    13 |
+| Tommy      | Hill      |       2 |    13 |
+| Andy       | Brennan   |       2 |    13 |
+| Dale       | Cooper    |       5 |    15 |
+| Harry      | Truman    |       5 |    14 |
+| Shelly     | Johnson   |       5 |    13 |
+| Bobby      | Briggs    |       5 |    15 |
+| Donna      | Hayward   |       5 |    13 |
+| Audrey     | Horne     |       5 |    13 |
+| James      | Hurley    |       5 |    13 |
+| Lucy       | Moran     |       5 |    12 |
+| Tommy      | Hill      |       5 |    14 |
+| Andy       | Brennan   |       5 |    12 |
++------------+-----------+---------+-------+
 ```
