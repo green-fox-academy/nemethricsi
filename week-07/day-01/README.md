@@ -1,3 +1,19 @@
+### TABLE OF CONTENTS
+
+
+1. [Databases](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#1-show-all-the-databases-you-have)
+2. [CREATE a Tables](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
+3. [Describe a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
+4. [Insert to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
+5. [READ from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
+6. [Primary Key](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#10-primary-key-event_id-student_id)
+7. [WHERE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#15-where)
+8. [LIKE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#20-like)
+9. [DELETE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#25-delete-a-record)
+10. [UPDATE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#28-update-a-record)
+11. [JOIN](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#31-join)
+
+
 ### 0. Login to MYSQL in command line
 
 `mysql -u root -p`
@@ -750,7 +766,7 @@ mysql> SELECT first_name, last_name, birth_date
 +------------+-----------+------------+
 ```
 
-### 30. IN
+### 30. IN
 ##### List when the db is includes the search term
 
 ```SQL
@@ -819,7 +835,7 @@ mysql> SELECT scores.student_id, tests.date, scores.score, tests.maxscore
 +------------+------------+-------+----------+
 ```
 
-### 32. Combining 3 tables
+### 32. Combining 3 tables
 
 ```SQL
 mysql> SELECT CONCAT(students.first_name, " ", students.last_name) AS "Name",
@@ -844,7 +860,7 @@ mysql> SELECT CONCAT(students.first_name, " ", students.last_name) AS "Name",
 +----------------+------------+-------+----------+
 ```
 
-##### other example:
+##### other example:
 
 ```SQL
 mysql> SELECT students.student_id,
@@ -862,9 +878,9 @@ mysql> SELECT students.student_id,
 +------------+--------------+----------+
 ```
 
-### 33. LEFT JOIN
-##### If we need to include all information from the table listed first "FROM students", even if it doesn't exist in the table on the right "LEFT JOIN absences", we can use a LEFT JOIN.
 
+### 33. LEFT JOIN
+##### If we need to include all information from the table listed first "FROM students", even if it doesn't exist in the table on the right "LEFT JOIN absences", we can use a LEFT JOIN.
 
 ```SQL
 mysql> SELECT students.student_id,
@@ -891,7 +907,8 @@ mysql> SELECT students.student_id,
 +------------+----------------+----------+
 ```
 
-### 34. INNER JOIN
+
+### 34. INNER JOIN
 ##### lists all the rows of data from the tables and put them together
 
 ```SQL
