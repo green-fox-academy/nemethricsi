@@ -14,14 +14,12 @@ mysql> SHOW DATABASES;
 | performance_schema |
 | sys                |
 +--------------------+
-4 rows in set (0.00 sec)
 ```
 
 ### 2. Create a database
 
 ```SQL
 mysql> CREATE DATABASE test3;
-Query OK, 1 row affected (0.01 sec)
 
 mysql> SHOW DATABASES;
 +--------------------+
@@ -33,7 +31,6 @@ mysql> SHOW DATABASES;
 | sys                |
 | test3              |
 +--------------------+
-5 rows in set (0.00 sec)
 ```
 
 ### 3. USE & SELECT db
@@ -50,7 +47,7 @@ mysql> SELECT DATABASE();
 +------------+
 | test3      |
 +------------+
-1 row in set (0.01 sec)
+
 
 mysql> SELECT DATABASE();
 +------------+
@@ -58,7 +55,6 @@ mysql> SELECT DATABASE();
 +------------+
 | NULL       |
 +------------+
-1 row in set (0.00 sec)
 ```
 
 ### 4. DROP database
@@ -66,7 +62,6 @@ mysql> SELECT DATABASE();
 
 ```SQL
 mysql> DROP DATABASE IF EXISTS test3;
-Query OK, 0 rows affected (0.01 sec)
 
 mysql> SHOW DATABASES;
 +--------------------+
@@ -77,8 +72,8 @@ mysql> SHOW DATABASES;
 | performance_schema |
 | sys                |
 +--------------------+
-4 rows in set (0.00 sec)
 ```
+
 ### 5. CREATE TABLE
 ##### Creating a table in a database
 
@@ -98,7 +93,6 @@ mysql> CREATE TABLE student(
     -> lunch_cost FLOAT NULL,
     -> student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
 
-    Query OK, 0 rows affected (0.03 sec)
 ```
 ```SQL
 mysql> SHOW TABLES;
@@ -107,7 +101,6 @@ mysql> SHOW TABLES;
 +-----------------+
 | student         |
 +-----------------+
-1 row in set (0.01 sec)
 ```
 
 ### 6. DESCRIBE table
@@ -132,7 +125,6 @@ mysql> DESCRIBE student;
 | lunch_cost   | float                 | YES  |     | NULL    |                |
 | student_id   | int(10) unsigned      | NO   | PRI | NULL    | auto_increment |
 +--------------+-----------------------+------+-----+---------+----------------+
-13 rows in set (0.01 sec)
 ```
 
 ### 7. INSERT INTO table VALUES ();
@@ -151,7 +143,6 @@ mysql> INSERT INTO student VALUES
     -> NOW(),
     -> 3.50,
     -> NULL);
-Query OK, 1 row affected (0.00 sec)
 ```
 ### 8. SELECT * FROM table;
 ##### Show all the data of a table
@@ -172,7 +163,6 @@ mysql> SELECT * FROM student;
 | Tommy      | Hill      | thill@aol.com    | 672 High Plains | Tucson       | AZ    | 85701 | 792-223-1115 | 1951-12-21 | M   | 2019-08-11 00:38:24 |        3.5 |          9 |
 | Andy       | Brennan   | abrennan@aol.com | 281 4th St      | Jacksonville | NC    | 28540 | 792-223-8902 | 1960-12-27 | M   | 2019-08-11 00:38:32 |        3.5 |         10 |
 +------------+-----------+------------------+-----------------+--------------+-------+-------+--------------+------------+-----+---------------------+------------+------------+
-10 rows in set (0.00 sec)
 ```
 ### 9. Insert more records in one step
 
@@ -183,9 +173,8 @@ mysql> INSERT INTO class VALUES
     -> ("Calculus", NULL), ("Earth Science", NULL), ("Biology", NULL),
     -> ("Chemistry", NULL), ("Physics", NULL), ("History", NULL),
     -> ("Art", NULL), ("Gym", NULL);
-Query OK, 14 rows affected (0.01 sec)
-Records: 14  Duplicates: 0  Warnings: 0
 ```
+
 ```SQL
 mysql> SELECT * FROM class;
 +---------------+----------+
@@ -206,7 +195,6 @@ mysql> SELECT * FROM class;
 | Art           |       13 |
 | Gym           |       14 |
 +---------------+----------+
-14 rows in set (0.00 sec)
 ```
 
 ### 10. PRIMARY KEY (event_id, student_id)
@@ -218,7 +206,6 @@ mysql> CREATE TABLE score(
     -> event_id INT UNSIGNED NOT NULL,
     -> score INT NOT NULL,
     -> PRIMARY KEY(event_id, student_id));
-Query OK, 0 rows affected (0.02 sec)
 ```
 
 ```SQL
@@ -226,7 +213,6 @@ mysql> CREATE TABLE absence(
     -> student_id INT UNSIGNED NOT NULL,
     -> date DATE NOT NULL,
     -> PRIMARY KEY(student_id, date));
-Query OK, 0 rows affected (0.02 sec)
 ```
 
 ### 11. Add a new column (field) to table
@@ -242,12 +228,11 @@ mysql> DESCRIBE test;
 | class_id | int(10) unsigned | NO   |     | NULL    |                |
 | test_id  | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
 +----------+------------------+------+-----+---------+----------------+
-4 rows in set (0.01 sec)
+
 
 mysql> ALTER TABLE test
     -> ADD maxscore INT NOT NULL AFTER type;
-Query OK, 0 rows affected (0.03 sec)
-Records: 0  Duplicates: 0  Warnings: 0
+
 
 mysql> DESCRIBE test;
 +----------+------------------+------+-----+---------+----------------+
@@ -259,7 +244,6 @@ mysql> DESCRIBE test;
 | class_id | int(10) unsigned | NO   |     | NULL    |                |
 | test_id  | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
 +----------+------------------+------+-----+---------+----------------+
-5 rows in set (0.01 sec)
 ```
 
 ### 12. Change the name of a column (field)
@@ -273,12 +257,11 @@ mysql> DESCRIBE score;
 | event_id   | int(10) unsigned | NO   | PRI | NULL    |       |
 | score      | int(11)          | NO   |     | NULL    |       |
 +------------+------------------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
+
 
 mysql> ALTER TABLE score CHANGE event_id test_id
     -> INT UNSIGNED NOT NULL;
-Query OK, 0 rows affected (0.01 sec)
-Records: 0  Duplicates: 0  Warnings: 0
+
 
 mysql> DESCRIBE score;
 +------------+------------------+------+-----+---------+-------+
@@ -288,7 +271,6 @@ mysql> DESCRIBE score;
 | test_id    | int(10) unsigned | NO   | PRI | NULL    |       |
 | score      | int(11)          | NO   |     | NULL    |       |
 +------------+------------------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
 ```
 
 ### 13. Reading specific columns (fields) of data
@@ -310,8 +292,8 @@ mysql> SELECT FIRST_NAME, last_name
 | Tommy      | Hill      |
 | Andy       | Brennan   |
 +------------+-----------+
-10 rows in set (0.00 sec)
 ```
+
 ### 14. RENAME TABLE
 
 ```SQL
@@ -325,7 +307,6 @@ mysql> SHOW TABLES;
 | student         |
 | test            |
 +-----------------+
-5 rows in set (0.00 sec)
 
 mysql> RENAME TABLE
     -> absence to absences,
@@ -333,7 +314,6 @@ mysql> RENAME TABLE
     -> score to scores,
     -> student to students,
     -> test to tests;
-Query OK, 0 rows affected (0.07 sec)
 
 mysql> SHOW TABLES;
 +-----------------+
@@ -345,7 +325,6 @@ mysql> SHOW TABLES;
 | students        |
 | tests           |
 +-----------------+
-5 rows in set (0.01 sec)
 ```
 
 ### 15. WHERE
@@ -360,7 +339,6 @@ mysql> SELECT first_name, last_name, state
 | Dale       | Cooper    | WA    |
 | Harry      | Truman    | WA    |
 +------------+-----------+-------+
-2 rows in set (0.00 sec)
 
 mysql> SELECT first_name, last_name, birth_date
     -> FROM students
@@ -391,7 +369,6 @@ mysql> SELECT last_name, state, birth_date
 | Briggs    | CA    | 1967-05-24 |
 | Moran     | CA    | 1954-11-27 |
 +-----------+-------+------------+
-3 rows in set, 2 warnings (0.00 sec)
 
 ```
 
@@ -415,7 +392,6 @@ mysql> SELECT last_name
 | Hill      |
 | Brennan   |
 +-----------+
-10 rows in set (0.00 sec)
 ```
 
 ### 17. ORDER BY (ASC, DESC)
@@ -438,7 +414,6 @@ mysql> SELECT first_name, last_name
 | Bobby      | Briggs    |
 | Andy       | Brennan   |
 +------------+-----------+
-10 rows in set (0.00 sec)
 ```
 
 ##### ordering by multiple columns
@@ -461,7 +436,6 @@ mysql> SELECT first_name, last_name, state
 | Lucy       | Moran     | CA    |
 | Tommy      | Hill      | AZ    |
 +------------+-----------+-------+
-10 rows in set (0.04 sec)
 ```
 
 ### 18. LIMIT
@@ -478,7 +452,6 @@ mysql> SELECT first_name, last_name FROM students LIMIT 5;
 | Bobby      | Briggs    |
 | Donna      | Hayward   |
 +------------+-----------+
-5 rows in set (0.00 sec)
 ```
 ##### showing the NEXT 5 matches
 
@@ -493,7 +466,6 @@ mysql> SELECT first_name, last_name FROM students LIMIT 5, 10;
 | Tommy      | Hill      |
 | Andy       | Brennan   |
 +------------+-----------+
-5 rows in set (0.00 sec)
 ```
 
 ### 19. CONCAT
@@ -516,7 +488,6 @@ mysql> SELECT CONCAT (first_name, " ", last_name) AS "Name",
 | Tommy Hill     | Tucson, AZ       |
 | Andy Brennan   | Jacksonville, NC |
 +----------------+------------------+
-10 rows in set (0.00 sec)
 ```
 
 ### 20. LIKE
@@ -536,7 +507,6 @@ mysql> SELECT last_name, first_name
 | Moran     | Lucy       |
 | Brennan   | Andy       |
 +-----------+------------+
-6 rows in set (0.00 sec)
 ```
 
 ### 21. LIKE '_ _ _ y'
@@ -552,7 +522,6 @@ mysql> SELECT last_name, first_name
 | Moran     | Lucy       |
 | Brennan   | Andy       |
 +-----------+------------+
-2 rows in set (0.00 sec)
 ```
 
 ### 22. DISTINCT
@@ -574,7 +543,6 @@ mysql> SELECT DISTINCT state
 | NY    |
 | WA    |
 +-------+
-8 rows in set (0.00 sec)
 ```
 
 ##### DISTINCT with COUNT
@@ -587,7 +555,6 @@ mysql> SELECT COUNT(DISTINCT state)
 +-----------------------+
 |                     8 | # students come from 8 states in total.
 +-----------------------+
-1 row in set (0.00 sec)
 ```
 
 ### 23. COUNT ( * )
@@ -601,7 +568,6 @@ mysql> SELECT COUNT(*)
 +----------+
 |       10 |
 +----------+
-1 row in set (0.00 sec)
 ```
 
 ### 24. GROUP BY
@@ -616,7 +582,6 @@ mysql> SELECT sex, COUNT(*)
 | M   |        6 |
 | F   |        4 |
 +-----+----------+
-2 rows in set (0.06 sec)
 ```
 
 ```SQL
@@ -634,7 +599,6 @@ mysql> SELECT Month(birth_date) AS "Month", COUNT(*)
 |    11 |        1 |
 |    12 |        3 |
 +-------+----------+
-6 rows in set (0.05 sec)
 ```
 
 ```SQL
@@ -648,7 +612,6 @@ mysql> SELECT state, COUNT(state) AS "Amount"
 | WA    |      2 |
 | CA    |      2 |
 +-------+--------+
-2 rows in set (0.00 sec)
 ```
 
 ```SQL
@@ -671,12 +634,69 @@ mysql> SELECT
 |    5 |   12 |   15 |     3 |   134 | 13.4000 |
 |    6 |   22 |   27 |     5 |   232 | 25.7778 |
 +------+------+------+-------+-------+---------+
-6 rows in set (0.01 sec)
 ```
 
-### 25.
-#####
+### 25. DELETE a record
 
 ```SQL
+mysql>  SELECT * FROM absences;
++------------+------------+
+| student_id | date       |
++------------+------------+
+|          6 | 2014-08-29 |
+|          7 | 2014-08-29 |
+|          8 | 2014-08-27 |
++------------+------------+
 
+mysql> DELETE FROM absences
+    -> WHERE student_id = 6;
+
+mysql>  SELECT * FROM absences;
++------------+------------+
+| student_id | date       |
++------------+------------+
+|          7 | 2014-08-29 |
+|          8 | 2014-08-27 |
++------------+------------+
+```
+
+### 26. MODIFY a column
+
+```MYSQL
+mysql> DESCRIBE absences;
++------------+------------------+------+-----+---------+-------+
+| Field      | Type             | Null | Key | Default | Extra |
++------------+------------------+------+-----+---------+-------+
+| student_id | int(10) unsigned | NO   | PRI | NULL    |       |
+| test_taken | char(1)          | NO   |     | F       |       |
+| date       | date             | NO   | PRI | NULL    |       |
++------------+------------------+------+-----+---------+-------+
+
+mysql> ALTER TABLE absences
+    -> MODIFY COLUMN test_taken ENUM("T", "F") NOT NULL DEFAULT "F";
+
+mysql> DESCRIBE absences;
++------------+------------------+------+-----+---------+-------+
+| Field      | Type             | Null | Key | Default | Extra |
++------------+------------------+------+-----+---------+-------+
+| student_id | int(10) unsigned | NO   | PRI | NULL    |       |
+| test_taken | enum('T','F')    | NO   |     | F       |       |
+| date       | date             | NO   | PRI | NULL    |       |
++------------+------------------+------+-----+---------+-------+
+```
+
+### 27. Deleting (DROP) a columns
+
+```SQL
+mysql> ALTER TABLE absences
+    -> DROP COLUMN test_taken;
+
+
+mysql> DESCRIBE absences;
++------------+------------------+------+-----+---------+-------+
+| Field      | Type             | Null | Key | Default | Extra |
++------------+------------------+------+-----+---------+-------+
+| student_id | int(10) unsigned | NO   | PRI | NULL    |       |
+| date       | date             | NO   | PRI | NULL    |       |
++------------+------------------+------+-----+---------+-------+
 ```
