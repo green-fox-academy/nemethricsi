@@ -1,4 +1,4 @@
-### 0. Login to MYSQL in command Tables_in_test3
+### 0. Login to MYSQL in command line
 
 `mysql -u root -p`
 
