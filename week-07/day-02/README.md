@@ -1,4 +1,4 @@
-#### Callback Functions
+### Callback Functions
 
 ```javascript
 let students = [
@@ -22,8 +22,9 @@ let processStudents = function(data, callback) {
 };
 ```
 
+#### only executes for East students and if callback is a function:
+
 ```js
-// only executes for East students and if callback is a function:
 processStudents(students, function(obj) {
   if (obj.score > 60) {
     console.log(obj.name + ' passed.');
@@ -31,10 +32,12 @@ processStudents(students, function(obj) {
 });
 ```
 
+#### other example
+
 ```js
 let determineTotal = function() {
   let total = 0;
-  count = 0;
+  let count = 0;
 
   processStudents(students, function(obj) {
     total += obj.score;
@@ -44,4 +47,30 @@ let determineTotal = function() {
 };
 
 determineTotal();
+```
+
+#### `setInterval`
+
+```js
+car colourChanger = document.getElementById('colour-changer');
+let colours = ['red', 'blue', 'green', 'pink'];
+let counter = 0;
+
+function changeColour() {
+  if (counter >= colours.length) {
+    counter = 0;
+  }
+
+  colourChanger.style.background = colours[counter];
+  counter++;
+
+}
+
+let myTimer = setInterval(changeColour, 3000);
+
+colourChanger.onclick = function() {
+
+  clearInterval(myTimer);
+  colourChanger.innerHTML = 'Timer stopped';
+};
 ```
