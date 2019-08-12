@@ -1,24 +1,36 @@
 ### TABLE OF CONTENTS
 
-
 1. [Databases](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#1-show-all-the-databases-you-have)
-5. [CREATE a Table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
-6. [Show description of a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
-7. [Insert record to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
-8. [READ from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
-10. [Primary Key](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#10-primary-key-event_id-student_id)
-15. [WHERE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#15-where)
-20. [LIKE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#20-like)
-25. [DELETE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#25-delete-a-record)
-28. [UPDATE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#28-update-a-record)
-31. [JOIN](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#31-join)
-
+2. [CREATE a Table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
+3. [Show description of a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
+4. [Insert record to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
+5. [READ from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
+6. [Primary Key](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#10-primary-key-event_id-student_id)
+7. [WHERE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#15-where)
+8. [LIKE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#20-like)
+9. [DELETE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#25-delete-a-record)
+10. [UPDATE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#28-update-a-record)
+11. [JOIN](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#31-join)
 
 ### 0. Login to MYSQL in command line
 
 `mysql -u root -p`
 
+### 0/b. Find where your db files are stored on the computer
+
+##### `mysql> select @@datadir;`
+
+```SQL
+mysql> select @@datadir;
++-----------------------+
+| @@datadir             |
++-----------------------+
+| /usr/local/var/mysql/ |
++-----------------------+
+```
+
 ### 1. Show all the databases you have
+
 ```SQL
 mysql> SHOW DATABASES;
 
@@ -50,7 +62,9 @@ mysql> SHOW DATABASES;
 ```
 
 ### 3. USE & SELECT db
+
 ##### Using a database and checking which one your're currently using
+
 If you don't use any it'll be `NULL`.
 
 ```SQL
@@ -74,6 +88,7 @@ mysql> SELECT DATABASE();
 ```
 
 ### 4. DROP database
+
 ##### Deleting a database
 
 ```SQL
@@ -91,6 +106,7 @@ mysql> SHOW DATABASES;
 ```
 
 ### 5. CREATE TABLE
+
 ##### Creating a table in a database
 
 ```SQL
@@ -110,6 +126,7 @@ mysql> CREATE TABLE student(
     -> student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
 
 ```
+
 ```SQL
 mysql> SHOW TABLES;
 +-----------------+
@@ -120,6 +137,7 @@ mysql> SHOW TABLES;
 ```
 
 ### 6. DESCRIBE table
+
 ##### Show description of your table
 
 ```SQL
@@ -144,6 +162,7 @@ mysql> DESCRIBE student;
 ```
 
 ### 7. INSERT INTO table VALUES ();
+
 ##### Add a record (row) to a table
 
 ```SQL
@@ -160,7 +179,9 @@ mysql> INSERT INTO student VALUES
     -> 3.50,
     -> NULL);
 ```
-### 8. SELECT * FROM table;
+
+### 8. SELECT \* FROM table;
+
 ##### Show all the data of a table
 
 ```SQL
@@ -180,11 +201,12 @@ mysql> SELECT * FROM student;
 | Andy       | Brennan   | abrennan@aol.com | 281 4th St      | Jacksonville | NC    | 28540 | 792-223-8902 | 1960-12-27 | M   | 2019-08-11 00:38:32 |        3.5 |         10 |
 +------------+-----------+------------------+-----------------+--------------+-------+-------+--------------+------------+-----+---------------------+------------+------------+
 ```
+
 ### 9. Insert more records in one step
 
 ```SQL
 mysql> INSERT INTO class VALUES
-    -> ("English", NULL), ("Speech", NULL), ("Literature", NULL),                                                                                                                 
+    -> ("English", NULL), ("Speech", NULL), ("Literature", NULL),
     -> ("Algebra", NULL), ("Geometry", NULL), ("Trigonometry", NULL),
     -> ("Calculus", NULL), ("Earth Science", NULL), ("Biology", NULL),
     -> ("Chemistry", NULL), ("Physics", NULL), ("History", NULL),
@@ -214,6 +236,7 @@ mysql> SELECT * FROM class;
 ```
 
 ### 10. PRIMARY KEY (event_id, student_id)
+
 ##### Create two primary keys
 
 ```SQL
@@ -232,6 +255,7 @@ mysql> CREATE TABLE absence(
 ```
 
 ### 11. Add a new column (field) to table
+
 ##### ALTER TABLE, AFTER
 
 ```SQL
@@ -455,6 +479,7 @@ mysql> SELECT first_name, last_name, state
 ```
 
 ### 18. LIMIT
+
 ##### showing the first 5 matches:
 
 ```SQL
@@ -469,6 +494,7 @@ mysql> SELECT first_name, last_name FROM students LIMIT 5;
 | Donna      | Hayward   |
 +------------+-----------+
 ```
+
 ##### showing the NEXT 5 matches
 
 ```SQL
@@ -507,6 +533,7 @@ mysql> SELECT CONCAT (first_name, " ", last_name) AS "Name",
 ```
 
 ### 20. LIKE
+
 ##### showing where first name starts with 'D' or last name ends with 'n'
 
 ```SQL
@@ -525,7 +552,8 @@ mysql> SELECT last_name, first_name
 +-----------+------------+
 ```
 
-### 21. LIKE '_ _ _ y'
+### 21. LIKE '\_ \_ \_ y'
+
 ##### Showing specific number of digits
 
 ```SQL
@@ -541,6 +569,7 @@ mysql> SELECT last_name, first_name
 ```
 
 ### 22. DISTINCT
+
 ##### Only showing a data once (filter duplicates)
 
 ```SQL
@@ -573,7 +602,8 @@ mysql> SELECT COUNT(DISTINCT state)
 +-----------------------+
 ```
 
-### 23. COUNT ( * )
+### 23. COUNT ( \* )
+
 ##### Showing the number of records
 
 ```SQL
@@ -767,6 +797,7 @@ mysql> SELECT first_name, last_name, birth_date
 ```
 
 ### 30. IN
+
 ##### List when the db is includes the search term
 
 ```SQL
@@ -783,6 +814,7 @@ mysql> SELECT first_name, last_name
 ```
 
 ### 31. JOIN
+
 ##### Combine data from multiple different tables
 
 ```SQL
@@ -812,6 +844,7 @@ mysql> SELECT * FROM scores;
 ................................
 +------------+---------+-------+
 ```
+
 ##### Combining scores and tests tables based on the common `test_id`:
 
 ```SQL
@@ -878,8 +911,8 @@ mysql> SELECT students.student_id,
 +------------+--------------+----------+
 ```
 
-
 ### 33. LEFT JOIN
+
 ##### If we need to include all information from the table listed first "FROM students", even if it doesn't exist in the table on the right "LEFT JOIN absences", we can use a LEFT JOIN.
 
 ```SQL
@@ -907,8 +940,8 @@ mysql> SELECT students.student_id,
 +------------+----------------+----------+
 ```
 
-
 ### 34. INNER JOIN
+
 ##### lists all the rows of data from the tables and put them together
 
 ```SQL
