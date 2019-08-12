@@ -989,3 +989,23 @@ mysql> SELECT students.first_name,
 | Andy       | Brennan   |       5 |    12 |
 +------------+-----------+---------+-------+
 ```
+
+### Other example (Q2)
+
+```SQL
+SELECT DISTINCT Movie.year
+FROM Movie
+JOIN Rating
+WHERE Movie.mID = Rating.mID
+AND (Rating.stars = 4 OR Rating.stars = 5)
+ORDER BY Movie.year ASC;
+```
+
+### LEFT JOIN
+
+```SQL
+SELECT DISTINCT title FROM Movie
+LEFT JOIN Rating
+ON Rating.mID = Movie.mID
+WHERE Rating.mID IS NULL;
+```
