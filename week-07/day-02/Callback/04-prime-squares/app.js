@@ -12,15 +12,15 @@ for (let i = 1; i < 101; i++) {
   let myDiv = document.createElement('div');
   myDiv.textContent = `${i}`;
   document.getElementsByTagName('section')[0].appendChild(myDiv);
-  setTimeout(primeOrNot(i), 100);
+  // setTimeout(primeOrNot(i), 100);
 }
 
-function primeOrNot(number) {
-  for (let i = 2; i <= number / 2; i++) {
-    if (number % i == 0) {
-      document.querySelectorAll('div')[i].classList.add('not-prime');
-    } else {
-      document.querySelectorAll('div')[i].classList.add('prime');
-    }
-  }
-}
+// function primeOrNot(number) {
+//   for (let i = 2; i <= number / 2; i++) {
+//     if (number % i == 0) {
+//       document.querySelectorAll('div')[i].classList.add('not-prime');
+//     } else {
+//       document.querySelectorAll('div')[i].classList.add('prime');
+//     }
+//   }
+// }
