@@ -59,6 +59,16 @@ app.get('/greeter', (req, res) => {
   res.send(response);
 });
 
+// AppendA
+// https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/backend-api/exercises/append-a/README.md
+app.get('/appenda/:appendable', (req, res) => {
+  let response = {};
+  response = {
+    appended: req.params.appendable + 'a'
+  };
+  res.send(response);
+});
+
 app.listen(PORT, () =>
   console.log(`The server is up and running on PORT ${PORT}`)
 );
