@@ -3,14 +3,14 @@ const app = express();
 const PORT = 8080;
 const path = require('path');
 app.use(express.static('assets'));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-// Create a GET /doubling endpoint
-// It should be able to handle a query parameter called input, eg. http://localhost:8080/doubling?input=15
-// This endpoint should respond with a json object with the doubled amount of the input:
+// DOUBLING
+// https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/backend-api/exercises/doubling/README.md
 
 app.get('/doubling', (req, res) => {
   let response = {};
@@ -67,6 +67,35 @@ app.get('/appenda/:appendable', (req, res) => {
     appended: req.params.appendable + 'a'
   };
   res.send(response);
+});
+
+// DO UNTIL
+// https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/backend-api/exercises/do-until/README.md
+
+app.post('/dountil/:action', function(req, res) {
+  let number = req.body.until;
+  let output = {};
+  let sum = 0;
+  if (req.params.action === 'sum') {
+    for (let i = 0; i <= number; i++) {
+      sum += i;
+    }
+    output = {
+      result: sum
+    };
+    console.log('sum: ' + sum);
+  }
+  let factor = 1;
+  if (req.params.action === 'factor') {
+    for (let i = 1; i <= number; i++) {
+      factor *= i;
+    }
+    output = {
+      result: factor
+    };
+    console.log('factor: ' + factor);
+  }
+  res.json(output);
 });
 
 app.listen(PORT, () =>
