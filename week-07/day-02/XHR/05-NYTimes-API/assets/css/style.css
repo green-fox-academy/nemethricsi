@@ -30,7 +30,7 @@ body {
   /* border: 2px solid blue; */
   margin-left: auto;
   margin-right: auto;
-  height: 95vh;
+  /* height: 95vh; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,24 @@ body {
   padding: 10px;
 }
 
-h3 {
+h2 {
   font-weight: 400;
   margin: 0;
+}
+
+p {
+  font-size: 0.95rem;
+}
+
+p + p {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: #444;
+}
+
+a:hover {
+  background-color: #faed27;
 }

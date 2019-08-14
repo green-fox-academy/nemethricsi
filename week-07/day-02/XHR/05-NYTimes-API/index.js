@@ -8,14 +8,6 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/index.js', (req, res) => {
-  res.send('Yo!');
-});
-
-app.get('/assets/js/xhr.js', (req, res) => {
-  res.send('Yo!');
-});
-
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT ${PORT}`);
 });
