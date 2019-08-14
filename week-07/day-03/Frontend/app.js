@@ -13,15 +13,48 @@ app.get('/', (req, res) => {
 // This endpoint should respond with a json object with the doubled amount of the input:
 
 app.get('/doubling', (req, res) => {
-  if (Number(req.query.input) === NaN) {
-    const response = {
+  let response = {};
+  console.log(req.query.input);
+  if (req.query.input === undefined || req.query.input === '') {
+    response = {
       error: 'Please provide an input!'
     };
+  } else {
+    response = {
+      received: req.query.input,
+      result: Number(req.query.input) * 2
+    };
   }
-  const response = {
-    received: req.query.input,
-    result: Number(req.query.input) * 2
-  };
+
+  res.send(response);
+});
+
+// Create a GET /greeter endpoint
+//that can receive a query parameter like name=Petike&title=student
+//and responds with an awesome greeting json object:
+
+app.get('/greeter', (req, res) => {
+  let response;
+  if (req.query.name === '' && req.query.title === '') {
+    response = {
+      error: 'Please provide a name and a title!'
+    };
+  } else if (req.query.name === '' && req.query.title !== '') {
+    response = {
+      error: 'Please provide a name!'
+    };
+  } else if (req.query.title === '' && req.query.name !== '') {
+    response = {
+      error: 'Please provide a title!'
+    };
+  } else {
+    response = {
+      welcome_message: `Oh, hi there ${req.query.name}, my dear ${
+        req.query.title
+      }!`
+    };
+  }
+
   res.send(response);
 });
 
