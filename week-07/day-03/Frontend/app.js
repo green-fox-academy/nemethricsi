@@ -29,9 +29,8 @@ app.get('/doubling', (req, res) => {
   res.send(response);
 });
 
-// Create a GET /greeter endpoint
-//that can receive a query parameter like name=Petike&title=student
-//and responds with an awesome greeting json object:
+// GREETER
+// https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/backend-api/exercises/greeter/README.md
 
 app.get('/greeter', (req, res) => {
   let response;
