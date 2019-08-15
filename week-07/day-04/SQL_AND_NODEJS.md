@@ -155,7 +155,7 @@ app.get('/booksHTML', (req, res) => {
 });
 ```
 
-XHR on the client side:
+`XMLHttpRequest` on the client side:
 
 ```javascript
 'use strict';
@@ -174,4 +174,25 @@ xhr.onload = function() {
 
 xhr.open('GET', 'http://localhost:3000/books');
 xhr.send('OK!');
+```
+
+#### Table for Book store
+
+```
+<table>
+  <tr>
+    <th>Title of Book</th>
+    <th>Name of author</th>
+    <th>Category</th>
+    <th>Name of publisher</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>book_name</td>
+    <td>aut_name</td>
+    <td>cate_descrip</td>
+    <td>pub_name</td>
+    <td>book_price</td>
+  </tr>
+</table>
 ```
