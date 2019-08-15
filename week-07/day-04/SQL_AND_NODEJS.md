@@ -4,6 +4,73 @@
 
 `mysql -u root -p myDatabase < file.sql`
 
+### Exercises
+
+#### Create an API endpoint that lists all book titles
+
+```js
+app.get('/books', (req, res) => {
+  let selectAllBooks = 'SELECT book_name FROM book_mast';
+  connection.query(selectAllBooks, (err, rows) => {
+    res.send(rows);
+  });
+});
+```
+
+#### Return an HTML file containing this list
+
+Serve an HTML from the server:
+
+```javascript
+app.get('/booksHTML', (req, res) => {
+  connection.query('SELECT book_name FROM book_mast', (err, rows) => {
+    res.sendFile(__dirname + '/index.html');
+  });
+});
+```
+
+`XMLHttpRequest` on the client side:
+
+```javascript
+'use strict';
+
+const body = document.getElementsByTagName('body')[0];
+const xhr = new XMLHttpRequest();
+
+xhr.onload = function() {
+  const bookNames = JSON.parse(xhr.responseText);
+  for (let i = 0; i < bookNames.length; i++) {
+    let p = document.createElement('p');
+    p.textContent = bookNames[i].book_name;
+    body.appendChild(p);
+  }
+};
+
+xhr.open('GET', 'http://localhost:3000/books');
+xhr.send('OK!');
+```
+
+#### Table for Book store
+
+```
+<table>
+  <tr>
+    <th>Title of Book</th>
+    <th>Name of author</th>
+    <th>Category</th>
+    <th>Name of publisher</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>book_name</td>
+    <td>aut_name</td>
+    <td>cate_descrip</td>
+    <td>pub_name</td>
+    <td>book_price</td>
+  </tr>
+</table>
+```
+
 ### Bookstore database:
 
 ```SQL
@@ -128,71 +195,4 @@ mysql> select * from  purchase;
 | INV0005    | 2007-07-28 | ORD/07-08/0004 | 2007-06-25 | 2007-07-30 | BK001   | Introduction to Electrodynamics | English  | CA001   |           8 |       25.00 |     200.00 |
 | INV0006    | 2007-09-24 | ORD/07-08/0007 | 2007-09-20 | 2007-09-30 | BK003   | Guide to Networking             | Hindi    | CA003   |          20 |       45.00 |     900.00 |
 +------------+------------+----------------+------------+------------+---------+---------------------------------+----------+---------+-------------+-------------+------------+
-```
-
-### Exercises
-
-#### Create an API endpoint that lists all book titles
-
-```js
-app.get('/books', (req, res) => {
-  let selectAllBooks = 'SELECT book_name FROM book_mast';
-  connection.query(selectAllBooks, (err, rows) => {
-    res.send(rows);
-  });
-});
-```
-
-#### Return an HTML file containing this list
-
-Serve an HTML from the server:
-
-```javascript
-app.get('/booksHTML', (req, res) => {
-  connection.query('SELECT book_name FROM book_mast', (err, rows) => {
-    res.sendFile(__dirname + '/index.html');
-  });
-});
-```
-
-`XMLHttpRequest` on the client side:
-
-```javascript
-'use strict';
-
-const body = document.getElementsByTagName('body')[0];
-const xhr = new XMLHttpRequest();
-
-xhr.onload = function() {
-  const bookNames = JSON.parse(xhr.responseText);
-  for (let i = 0; i < bookNames.length; i++) {
-    let p = document.createElement('p');
-    p.textContent = bookNames[i].book_name;
-    body.appendChild(p);
-  }
-};
-
-xhr.open('GET', 'http://localhost:3000/books');
-xhr.send('OK!');
-```
-
-#### Table for Book store
-
-```
-<table>
-  <tr>
-    <th>Title of Book</th>
-    <th>Name of author</th>
-    <th>Category</th>
-    <th>Name of publisher</th>
-    <th>Price</th>
-  </tr>
-  <tr>
-    <td>book_name</td>
-    <td>aut_name</td>
-    <td>cate_descrip</td>
-    <td>pub_name</td>
-    <td>book_price</td>
-  </tr>
-</table>
 ```
