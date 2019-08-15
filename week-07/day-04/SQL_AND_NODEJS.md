@@ -129,3 +129,16 @@ mysql> select * from  purchase;
 | INV0006    | 2007-09-24 | ORD/07-08/0007 | 2007-09-20 | 2007-09-30 | BK003   | Guide to Networking             | Hindi    | CA003   |          20 |       45.00 |     900.00 |
 +------------+------------+----------------+------------+------------+---------+---------------------------------+----------+---------+-------------+-------------+------------+
 ```
+
+### Exercises
+
+#### Create an API endpoint that lists all book titles
+
+```js
+app.get('/books', (req, res) => {
+  let selectAllBooks = 'SELECT book_name FROM book_mast';
+  connection.query(selectAllBooks, (err, rows) => {
+    res.send(rows);
+  });
+});
+```
