@@ -142,3 +142,36 @@ app.get('/books', (req, res) => {
   });
 });
 ```
+
+#### Return an HTML file containing this list
+
+Serve an HTML from the server:
+
+```javascript
+app.get('/booksHTML', (req, res) => {
+  connection.query('SELECT book_name FROM book_mast', (err, rows) => {
+    res.sendFile(__dirname + '/index.html');
+  });
+});
+```
+
+XHR on the client side:
+
+```javascript
+'use strict';
+
+const body = document.getElementsByTagName('body')[0];
+const xhr = new XMLHttpRequest();
+
+xhr.onload = function() {
+  const bookNames = JSON.parse(xhr.responseText);
+  for (let i = 0; i < bookNames.length; i++) {
+    let p = document.createElement('p');
+    p.textContent = bookNames[i].book_name;
+    body.appendChild(p);
+  }
+};
+
+xhr.open('GET', 'http://localhost:3000/books');
+xhr.send('OK!');
+```
