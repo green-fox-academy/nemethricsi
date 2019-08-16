@@ -1,0 +1,15 @@
+{
+  "name": "reddit",
+  "version": "1.0.0",
+  "description": "it's a reddit clone for learning purposes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RN",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
