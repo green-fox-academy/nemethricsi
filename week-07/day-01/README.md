@@ -28,6 +28,12 @@ mysql> select @@datadir;
 | /usr/local/var/mysql/ |
 +-----------------------+
 ```
+### 0/c. Show all the databases you have
+
+In case you run into the error message 'Client does not support authentication protocol requested by server; consider upgrading MySQL client' in Node (like me):
+you can fix it by entering the following command into MySQL Client or Workbench:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+where 'password' is 'your actual password'.
 
 ### 1. Show all the databases you have
 
