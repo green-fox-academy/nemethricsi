@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+</head>
+
+<body>
+    <ul>
+        <li>apple</li>
+        <li>balloon</li>
+        <li>cat</li>
+        <li>dolphin</li>
+    </ul>
+    <button>How many items are in the list?</button>
+    <p class="result">dunno :(</p>
+
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            let list = document.querySelectorAll('li');
+            document.querySelector('p').textContent = `This list has ${list.length} items!`;
+        });
+    </script>
+</body>
+
+</html>
