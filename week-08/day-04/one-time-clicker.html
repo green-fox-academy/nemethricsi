@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+</head>
+
+<body>
+    <button style="font-size: 40px; padding: 15px;">Click me</button>
+
+    <!-- Create an event listener which logs the current timestamp to the console once the button is clicked.
+        When the button is clicked for the second or any other times no event listener should be called.
+        Try to solve this two different ways.
+            hint: take a look at the button attributes https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+    OR
+    <script src="one-time-clicker.js"></script> -->
+
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', function (e) {
+            console.log(e.timeStamp);
+            btn.disabled = true;
+        });
+    </script>
+</body>
+
+</html>
