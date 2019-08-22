@@ -1,0 +1,42 @@
+/**********************/
+/***    BOX-SIZING  ***/
+/**********************/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************/
+/***      MAIN      ***/
+/**********************/
+.main {
+  max-width: 940px;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+.container {
+  padding: 20px;
+  width: 70%;
+  /* height: 180px; */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+}
