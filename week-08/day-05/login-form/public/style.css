@@ -1,0 +1,79 @@
+/**********************/
+/***    BOX-SIZING  ***/
+/* green 85AB7F*/
+/**********************/
+
+html {
+  box-sizing: border-box;
+ }
+ 
+ *,
+ *:before,
+ *:after {
+  box-sizing: inherit;
+ }
+ 
+ body {
+  margin: 0;
+  padding: 0;
+  background-color: #EBEBEB;
+  color: #333;
+  font-family: Helvetica;
+ }
+
+/**********************/
+/***        MAIN    ***/
+/**********************/
+
+.container {
+  background-color: #fff;
+  max-width: 450px;
+  height: 450px;
+  margin: 50px auto 0 auto;
+  padding: 60px 0 30px 60px;
+  line-height: 2rem;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+form > * {
+  display: block;
+}
+
+input {
+  height: 2.5rem;
+  font-size: 14px;
+}
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #333;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px #85AB7F;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #85AB7F;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
