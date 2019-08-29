@@ -1,19 +1,19 @@
 const express = require('express');
 let app = express();
 const PORT = 3000;
-app.listen(PORT);
+app.listen(PORT, () => { console.log('Server up and listen! 🔥') });
 app.set('view engine', 'ejs');
 app.use(express.static('assets'));
 
 app.get('/', (req, res) => {
   let filteredCocktails = [];
-  if (alcoholList.includes(req.query.alcohol)) {
+  if (alcoholList.includes(req.query.alcoho)) {
     for (let i = 0; i < cocktails.length; i++) {
-      if (cocktails[i].contains.includes(req.query.alcohol)) {
+      if (cocktails[i].contains.includes(req.query.alcoho)) {
         filteredCocktails.push(cocktails[i]);
       }
     }
-  } else if (!alcoholList.includes(req.query.alcohol)) {
+  } else if (!alcoholList.includes(req.query.alcoho)) {
     filteredCocktails = cocktails;
   } else if (req.query.nonalcoholic === nonalcoholic) {
     for (let i = 0; i < cocktails.length; i++) {
