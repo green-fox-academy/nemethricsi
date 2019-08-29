@@ -12,3 +12,21 @@ a:hover {
 span {
   color: red;
 }
+
+th {
+  background-color: black;
+  color: white;
+  height: 40px;
+}
+
+tr:nth-child(even) {
+  background: #CCC;
+}
+
+tr :nth-child(odd) {
+  width: 500px;
+}
+
+tr :nth-child(even) {
+  width: 300px;
+}
