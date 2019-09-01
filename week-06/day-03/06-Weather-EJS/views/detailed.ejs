@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/detailed.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+  <title>Weather - Detailed</title>
+</head>
+
+<body>
+  <main>
+    <h1><%= city %></h1>
+    <div class="container">
+      <% for(let i = 0; i < database.length; i++) { %>
+      <% if(database[i].city === city) { %>
+      <%for (let j = 0; j < database[i].weather.length; j++){ %>
+      <div class="details">
+        <img src="/<%= database[i].weather[j].icon %>.png" alt="<%= database[i].weather[0].icon %>-icon">
+        <h3><%= database[i].weather[j].temp %> °C</h3>
+        <p><%= database[i].weather[j].message %></p>
+      </div>
+      <%}%>
+      <%}%>
+      <%}%>
+      <a href="/">
+        <div class="btn">BACK</div>
+      </a>
+  </main>
+</body>
+
+</html>
