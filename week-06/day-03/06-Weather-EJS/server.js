@@ -14,7 +14,23 @@ app.get('/cities/:city', (req, res) => {
 
 app.listen(PORT, () => console.log(`Server is up and running on ${PORT} 🚨`));
 
+// Database
+// Current Weather:
+// http://api.openweathermap.org/data/2.5/weather?q=Barcelona&APPID=9275b72dd799e13720c39f8c455f8de2
+// 5 days forecast / 3 hours:
+// http://api.openweathermap.org/data/2.5/forecast?q=Budapest,hu&APPID=9275b72dd799e13720c39f8c455f8de2
 const forecasts = [
+  {
+    city: 'Budapest',
+    location: 'Hungary',
+    weather: [
+      { temp: 12, icon: 'partly_cloudy', message: 'It\'s cloudy.' },
+      { temp: 16, icon: 'rainy', message: 'Sooo... Wet.' },
+      { temp: 18, icon: 'partly_cloudy', message: 'Here comes the sun.' },
+      { temp: 16, icon: 'partly_cloudy', message: 'Not too sunny.' },
+      { temp: 19, icon: 'partly_cloudy', message: 'So far so good.' },
+    ],
+  },
   {
     city: 'Seattle',
     location: 'Washington, United States',
@@ -57,17 +73,6 @@ const forecasts = [
       { temp: 10, icon: 'rainy', message: 'It\'s rainy.' },
       { temp: 9, icon: 'rainy', message: 'Meh...' },
       { temp: 11, icon: 'rainy', message: 'Meh... Again.' },
-    ],
-  },
-  {
-    city: 'Budapest',
-    location: 'Hungary',
-    weather: [
-      { temp: 12, icon: 'partly_cloudy', message: 'It\'s cloudy.' },
-      { temp: 16, icon: 'rainy', message: 'Sooo... Wet.' },
-      { temp: 18, icon: 'partly_cloudy', message: 'Here comes the sun.' },
-      { temp: 16, icon: 'partly_cloudy', message: 'Not too sunny.' },
-      { temp: 19, icon: 'partly_cloudy', message: 'So far so good.' },
     ],
   },
   {
