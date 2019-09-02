@@ -1,0 +1,48 @@
+/* Box-Sizing */
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+/* MAIN */
+
+button {
+  padding: 15px 5px;
+  border-radius: 5px;
+  background-color: #0CADB0;
+  color:#fff; 
+  font-weight: 700;
+  font-size: 18px;
+  margin: 20px 0 0 30px;
+}
+
+button:hover{
+  background-color: #086e70;
+  cursor: pointer;
+}
+
+div {
+  padding: 30px;
+  height: 150px;
+  width: 600px; 
+  margin-left: 30px;
+  border: 3px dotted blue;
+  display: grid;
+  align-items: center;
+  line-height: 1.7rem;
+}
