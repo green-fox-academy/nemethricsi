@@ -1,14 +1,14 @@
 const promise = new Promise(function (fulfill, reject) {
   // Your solution here
   setTimeout(() => {
-    throw new Error('REJECTED!');
+    reject(new Error('REJECTED!'));
   }, 300);
 });
 
 function onReject(error) {
   // Your solution here
-  console.log(error);
+  console.log(error.message);
 }
 
 // Your solution here
-promise.catch(err => console.log(err));
+promise.then(null, onReject);
