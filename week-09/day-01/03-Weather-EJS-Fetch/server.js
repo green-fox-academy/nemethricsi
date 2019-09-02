@@ -15,7 +15,7 @@ app.get('/cities/:city', (req, res) => {
   const URL = `http://api.openweathermap.org/data/2.5/forecast?q=${req.params.city}&APPID=9275b72dd799e13720c39f8c455f8de2`;
   fetchJson.get(URL)
     .then((data) => {
-      let weatherObject = [
+      let weatherArray = [
         {
           time: data.list[0].dt_txt,
           icon: data.list[0].weather[0].icon,
@@ -47,7 +47,7 @@ app.get('/cities/:city', (req, res) => {
           description: data.list[4].weather[0].description
         }
       ];
-      return weatherObject;
+      return weatherArray;
     })
     .then((returnValue) => {
       res.render('detailed.ejs', { cityArray: returnValue, city: req.params.city });
