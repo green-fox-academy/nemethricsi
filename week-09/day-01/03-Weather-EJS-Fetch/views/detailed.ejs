@@ -14,13 +14,13 @@
   <main>
     <h1><%= city %></h1>
     <div class="container">
-      <% for (let i = 0; i < weatherObject.length; i++) { %>
-      <% console.log(weatherObject[i]); %>
+      <% for (let i = 0; i < cityArray.length; i++) { %>
       <div class="details">
-        <p class="time"><%= (Number(weatherObject[i].time.slice(11, 13))+2) + ':00 CET' %></p>
-        <img src="http://openweathermap.org/img/wn/<%= weatherObject[i].icon %>@2x.png" alt="">
-        <h3><%= (Number(weatherObject[i].temp) - 273.15).toFixed(0) %> °C</h3>
-        <p><%= weatherObject[i].description %></p>
+        <p class="time"><%= cityArray[i].time.slice(11, 16) %></p>
+        <img src="http://openweathermap.org/img/wn/<%= cityArray[i].icon %>@2x.png"
+          alt="<%= cityArray[i].description %> icon">
+        <h3><%= (Number(cityArray[i].temp) - 273.15).toFixed(0) %> °C</h3>
+        <p><%= cityArray[i].description %></p>
       </div>
       <%}%>
       <a href="/">

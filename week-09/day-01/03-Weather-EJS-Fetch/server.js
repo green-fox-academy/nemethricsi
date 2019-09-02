@@ -12,11 +12,10 @@ app.get('/', (req, res) => {
 
 app.get('/cities/:city', (req, res) => {
   // Open weather API
-  let weatherObject = [];
   const URL = `http://api.openweathermap.org/data/2.5/forecast?q=${req.params.city}&APPID=9275b72dd799e13720c39f8c455f8de2`;
   fetchJson.get(URL)
     .then((data) => {
-      weatherObject = [
+      let weatherObject = [
         {
           time: data.list[0].dt_txt,
           icon: data.list[0].weather[0].icon,
@@ -50,8 +49,8 @@ app.get('/cities/:city', (req, res) => {
       ];
       return weatherObject;
     })
-    .then((data) => {
-      res.render('detailed.ejs', { weatherObject: data, city: req.params.city });
+    .then((returnValue) => {
+      res.render('detailed.ejs', { cityArray: returnValue, city: req.params.city });
     });
 });
 
