@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Row</title>
+    <style>
+        /* Box-Sizing */
+
+        html {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        main {
+            height: 150px;
+            background: #B02AFF;
+            display: grid;
+            grid-template-columns: 1fr 60% 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        aside {
+            background: #FFD629;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+
+        div {
+            background: #51D400;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <aside>left</aside>
+        <div>60 is my ratio</div>
+        <aside>right</aside>
+    </main>
+</body>
+
+</html>
