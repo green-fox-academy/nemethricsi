@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Layout </title>
+  <style>
+    /* Box-Sizing */
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #fff;
+      font-size: 30px;
+    }
+
+    header {
+      background: #B02AFF;
+      display: flex;
+      align-items: center;
+      padding: 20px 20px 20px 0;
+      margin-bottom: 10px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav {
+      display: flex;
+      align-content: center;
+      margin-left: 10%;
+    }
+
+    nav a {
+      background: #29EAFF;
+      /* width: 80px; */
+      padding: 10px;
+      margin-right: 10px;
+      font-size: 16px;
+      text-decoration: none;
+      color: #333;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    main {
+      height: 90vh;
+      width: 80%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 1fr 50px;
+      gap: 10px;
+    }
+
+    section {
+      background: #FFD629;
+      border-radius: 3px;
+    }
+
+    aside {
+      background: #51D400;
+      border-radius: 3px;
+    }
+
+    footer {
+      background: #CCCCCC;
+      grid-column: span 2;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact</a>
+      <a href="">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section></section>
+    <aside></aside>
+    <footer></footer>
+  </main>
+</body>
+
+</html>
