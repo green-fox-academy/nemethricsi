@@ -53,9 +53,8 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts/:id/upvote', (req, res) => {
-  // req.params.id
-  // query: UPDATE posts SET score = score + 1 WHERE id = 1;
   const query = `UPDATE posts SET score = score + 1 WHERE id = ${req.params.id};`
+
   re.send('PUT ok.');
 });
 
