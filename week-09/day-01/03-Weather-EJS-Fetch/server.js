@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-// const fetchUrl = require("fetch").fetchUrl;
+// https://www.npmjs.com/package/fetch-json
 const fetchJson = require('fetch-json');
 app.set('view engine', 'ejs');
 app.use(express.static('static'));
