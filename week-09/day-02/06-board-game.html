@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Board Game</title>
+  <style>
+    /* Box-Sizing */
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      font-size: 30px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 3px;
+      padding: 3px;
+      height: 100vh;
+      background: #333333;
+    }
+
+    .yellow {
+      background: #FFD629;
+      /* border: 1px solid black; */
+    }
+
+    .green {
+      grid-column: span 4;
+      grid-row: span 4;
+      background: #51D400;
+      box-shadow: inset 0 0 10px #000000;
+    }
+
+    .cards {
+      background: #B02AFF;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="yellow one"></div>
+  <div class="yellow two"></div>
+  <div class="yellow three"></div>
+  <div class="yellow four"></div>
+  <div class="yellow five"></div>
+  <div class="yellow six"></div>
+  <div class="yellow seven"></div>
+  <div class="green eight">
+    <div class="cards">CARDS</div>
+  </div>
+  <div class="yellow nine"></div>
+  <div class="yellow ten"></div>
+  <div class="yellow eleven"></div>
+  <div class="yellow twelve"></div>
+  <div class="yellow thirteen"></div>
+  <div class="yellow fourteen"></div>
+  <div class="yellow fifteen"></div>
+  <div class="yellow sixteen"></div>
+  <div class="yellow seventeen"></div>
+  <div class="yellow eightteen"></div>
+  <div class="yellow nineteen"></div>
+  <div class="yellow twenty"></div>
+  <div class="yellow twenty-one"></div>
+
+</body>
+
+</html>
