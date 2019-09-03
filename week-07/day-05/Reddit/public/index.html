@@ -2,16 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Reddit Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Reddit Demo</title>
 </head>
 
 <body>
-  <h1>This is the Reddit frontend!</h1>
-  <script src="js/frontend.js"></script>
+    <h1>This is the Reddit frontend!</h1>
+    <br>
+    <h3>Add new post here:</h3>
+    <form action="/posts" method="POST">
+        <label for="title">title</label>
+        <input type="text" id="titles" name="title" required />
+        <label for="url">URL</label>
+        <input type="url" id="urls" required />
+        <input type="submit" value="SEND!" />
+    </form>
+    <script src="js/frontend.js"></script>
 </body>
 
 </html>
