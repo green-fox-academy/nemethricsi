@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Big Area</title>
+  <style>
+    /* Box-Sizing */
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      font-size: 30px;
+    }
+
+    main {
+      background: #333333;
+      height: 400px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .purple {
+      background: #B02AFF;
+    }
+
+    .green {
+      background: #51D400;
+      grid-column: 2 / 4;
+      grid-row: 1 / 3;
+      display: grid;
+      place-items: center;
+    }
+
+    .yellow {
+      background: #FFD629;
+      width: 70%;
+      height: 70%;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="purple"></div>
+    <div class="purple"></div>
+    <div class="purple"></div>
+    <div class="purple"></div>
+    <div class="purple"></div>
+    <div class="green">
+      <dir class="yellow"></dir>
+    </div>
+  </main>
+</body>
+
+</html>
