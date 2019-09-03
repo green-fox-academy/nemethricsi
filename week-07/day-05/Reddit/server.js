@@ -52,20 +52,12 @@ app.post('/posts', (req, res) => {
   });
 });
 
-// app.post('/account', (req, res) => {
-//   const { result } = req.body; //????????
-//   const query = `insert into users(username,password) values(?, ?);`;
-//   console.log(req.body);
-//   connection.query(query, [req.body.username, req.body.password], (err, result) => {
-//     if (err === null) {
-//       res.sendStatus(201);
-//     }
-//     else {
-//       console.log(err);
-//       res.sendStatus(500);
-//     }
-//   });
-// });
+app.put('/posts/:id/upvote', (req, res) => {
+  // req.params.id
+  // query: UPDATE posts SET score = score + 1 WHERE id = 1;
+  const query = `UPDATE posts SET score = score + 1 WHERE id = ${req.params.id};`
+  re.send('PUT ok.');
+});
 
 
 app.listen(PORT, () => { console.log(`Server is up and listening on Port ${PORT} 👽`); })
