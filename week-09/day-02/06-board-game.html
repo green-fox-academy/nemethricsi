@@ -40,6 +40,10 @@
     .yellow {
       background: #FFD629;
       border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #222;
       /* border: 1px solid black; */
     }
 
@@ -57,17 +61,25 @@
       justify-self: end;
       align-self: center;
       margin-right: 20px;
-      height: 50%;
+      height: 45%;
       width: 60%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    p {
+      margin: 0;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+    }
   </style>
 </head>
 
 <body>
-  <div class="yellow one"></div>
+  <div class="yellow one">
+    <p>Start</p>
+  </div>
   <div class="yellow two"></div>
   <div class="yellow three"></div>
   <div class="yellow four"></div>
@@ -89,7 +101,9 @@
   <div class="yellow eightteen"></div>
   <div class="yellow nineteen"></div>
   <div class="yellow twenty"></div>
-  <div class="yellow twenty-one"></div>
+  <div class="yellow twenty-one">
+    <p>Pub</p>
+  </div>
 
 </body>
 
