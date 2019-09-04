@@ -15,4 +15,79 @@ html {
 body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
+  
 }
+body{
+  background: #373C3F;
+  font-family: 'Lato', sans-serif;
+}
+header{
+  display: sticky;
+  top:0;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+input{
+  height: 40px;
+  font-size: 16px;
+}
+
+main {
+  /* background: lightpink; */
+  margin: 0 auto;
+  max-width: 980px;
+  display: grid;
+}
+
+.posts{
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+aside{
+  margin-top: 15px;
+  display: none;
+}
+
+div{
+  box-shadow: 0 0.0625rem 0.125rem 0 rgba(0,0,0,.08);
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  min-height: 150px;
+}
+
+div h3 {
+  color: #9B9B9B;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+div a {
+  color: #383839;
+}
+
+.widget {
+  height: 200px;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 640px){
+  aside{
+    display: unset;
+    grid-column-start: 2;
+  }
+  main {
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+  }
+}
+
+/* @media screen and (min-width: 980px){
+  
+  
+} */

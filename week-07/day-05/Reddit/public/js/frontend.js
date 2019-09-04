@@ -1,6 +1,8 @@
 const form = document.querySelector('form');
 const titles = document.querySelector('#titles');
 const urls = document.querySelector('#urls');
+const main = document.querySelector('main');
+const postContainer = document.querySelector('.posts');
 
 //SHOW POSTS
 const xhr = new XMLHttpRequest();
@@ -9,12 +11,14 @@ xhr.onload = () => {
   console.log(posts);
   for (let i = posts.posts.length - 1; i >= 0; i--) {
     let div = document.createElement('div');
-    document.body.appendChild(div);
+    postContainer.appendChild(div);
     let title = document.createElement('h3');
     title.textContent = posts.posts[i].title;
     div.appendChild(title);
-    let postURL = document.createElement('p');
+    let postURL = document.createElement('a');
     postURL.textContent = posts.posts[i].url;
+    postURL.setAttribute('href', posts.posts[i].url);
+    postURL.setAttribute('target', '_blank');
     div.appendChild(postURL);
   }
 }
@@ -33,13 +37,14 @@ form.addEventListener('submit', e => {
         const newPost = JSON.parse(xhr.responseText);
         console.log(newPost);
         let div = document.createElement('div');
-        let h1 = document.getElementsByTagName('h1')[1];
-        h1.after(div);
+        postContainer.insertBefore(div, postContainer.firstChild);
         let title = document.createElement('h3');
         title.textContent = newPost.title;
         div.appendChild(title);
-        let postURL = document.createElement('p');
+        let postURL = document.createElement('a');
         postURL.textContent = newPost.url;
+        postURL.setAttribute('href', newPost.url);
+        postURL.setAttribute('target', '_blank');
         div.appendChild(postURL);
       } else {
         console.log('oh noes 😢');
