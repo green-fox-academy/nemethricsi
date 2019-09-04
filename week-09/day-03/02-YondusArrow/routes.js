@@ -6,9 +6,9 @@ app.get('/yondu', (req, res) => {
     const distance = req.query.distance;
     const time = req.query.time;
     res.send({
-        distance: 100.0,
-        time: 10.0,
-        speed: distance / time
+        distance: Number(distance).toFixed(1),
+        time: Number(time).toFixed(1),
+        speed: (distance / time).toFixed(1)
     });
 });
 
