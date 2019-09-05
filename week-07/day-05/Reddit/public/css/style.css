@@ -70,6 +70,32 @@ div h3 {
 div a {
   color: #383839;
 }
+button{
+  height: 50px;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  color: #fff;
+  background: #4AA3DF;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+button:hover{
+  background: #67b2e4;
+  cursor: pointer;
+}
+
+#small-button{
+  display: none;
+}
+
+#big-button {
+  height: 70px;
+  margin-bottom: 25px;
+}
 
 .widget {
   height: 200px;
@@ -84,6 +110,12 @@ div a {
   main {
     grid-template-columns: 2fr 1fr;
     gap: 25px;
+  }
+  #small-button{
+    display: unset;
+  }
+  #big-button{
+    display: none;
   }
 }
 

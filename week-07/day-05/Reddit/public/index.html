@@ -17,15 +17,18 @@
         <h3>Add new post here:</h3>
         <br>
         <form action="/posts" method="POST">
-            <input type="text" id="titles" name="title" placeholder="title" required autofocus />
+            <input type="text" id="titles" name="title" placeholder="Title" required />
             <input type="url" id="urls" placeholder="Url" required />
-            <input type="submit" value="SEND!" />
+            <input type="submit" value="POST!" />
         </form>
     </header>
     <main>
-        <div class="posts"></div>
+        <div class="posts">
+            <button id="big-button" class="submit-button">submit a new post</button>
+        </div>
         <aside>
-            <div class="widget">ABOUT</div>
+            <button id="small-button" class="submit-button">submit a new post</button>
+            <div class="widget"></div>
             <div class="widget"></div>
             <div class="widget"></div>
         </aside>
