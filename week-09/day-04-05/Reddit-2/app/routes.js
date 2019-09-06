@@ -39,4 +39,8 @@ app.get('/api/posts', (req, res) => {
     .then(json => res.render('posts', { posts: json }));
 });
 
+app.get('/submit', (req, res) => {
+  res.render('submit');
+});
+
 module.exports = app;
