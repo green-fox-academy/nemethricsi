@@ -1,0 +1,19 @@
+<% posts.posts.forEach((post) => { %>
+<div class="post-container">
+    <div class="post-sidebar">
+        <div class="votes">
+            <i class="fas fa-arrow-alt-circle-up"></i>
+            <p class="vote"><%=post.score%></p>
+            <i class="fas fa-arrow-alt-circle-down"></i>
+        </div>
+        <div class="modifiers">
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash-alt"></i>
+        </div>
+    </div>
+    <div class="post-content">
+        <h2 class="post-title"><%=post.title%></h2>
+        <a href="<%=post.url%>" target="_blank" class="post-link"><%=post.url%></a>
+    </div>
+</div>
+<% });%>

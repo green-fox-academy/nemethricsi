@@ -45,6 +45,16 @@ main {
   color: #333;
 }
 
+.modifiers>i[class="fas fa-edit"]:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.modifiers>i[class="fas fa-trash-alt"]:hover {
+  color: red;
+  cursor: pointer;
+}
+
 i[class^="fas"]{
   display: block;
   padding: 5px;
@@ -54,6 +64,16 @@ i[class^="fas"]{
   margin: 5px 0;
   text-align: center;
   font-weight: 700;
+}
+
+.votes>i[class^="fas fa-arrow-alt-circle-up"]:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.votes>i[class^="fas fa-arrow-alt-circle-down"]:hover {
+  color: blue;
+  cursor: pointer;
 }
 
 .post-content{

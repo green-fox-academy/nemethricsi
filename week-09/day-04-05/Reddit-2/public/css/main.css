@@ -40,6 +40,69 @@ main{
   min-height: 100vh;
 }
 
+/* POST CONTAINER CSS*/
+.post-container{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-auto-rows: minmax(180px, auto);
+  margin-bottom: 15px;
+}
+
+.post-sidebar{
+  background: #A7A7A7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+}
+
+.modifiers{
+  color: #333;
+}
+
+.modifiers>i[class="fas fa-edit"]:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.modifiers>i[class="fas fa-trash-alt"]:hover {
+  color: red;
+  cursor: pointer;
+}
+
+i[class^="fas"]{
+  display: block;
+  padding: 5px;
+}
+
+.vote {
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.votes>i[class^="fas fa-arrow-alt-circle-up"]:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.votes>i[class^="fas fa-arrow-alt-circle-down"]:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.post-content{
+  background: #fff;
+  padding: 30px;
+}
+
+.post-title{
+  margin-bottom: 20px;
+}
+
+/* POST CONTAINER CSS UNTIL HERE*/
+
 a[href="/submit"]{
   display: block;
   padding: 20px 10px;
