@@ -37,7 +37,6 @@ header{
 }
 
 main{
-  background: lightcoral;
   min-height: 100vh;
 }
 
@@ -121,11 +120,11 @@ footer{
   }
 
   a > .fa-link {
-    display: none;
+    visibility: hidden;
   }
 
   a:hover > .fa-link {
-    display: inline-block;
+    visibility: visible;
   }
 
   footer{
