@@ -223,6 +223,8 @@ article{
 
 .aside-title > p {
   display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .aside-box {
