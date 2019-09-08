@@ -235,6 +235,8 @@ article{
 footer{
   background: lightslategrey;
   height: 50px;
+  color: #fff;
+  text-align: center;
 }
 
 @media screen and (min-width: 769px){
