@@ -48,25 +48,25 @@ header img {
   overflow: auto;
 }
 
-header .add-to-playlist{
+header .create-playlist{
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
 }
 
-header .add-to-playlist p {
+header .create-playlist p {
   font-size: 24px;
   margin: 0;
 }
 
-.add-to-playlist i {
+.create-playlist i {
   align-self: center;
   font-size: 24px;
   margin-right: 5px;
   margin-top: 2px;
 }
 
-.add-to-playlist i:hover {
+.create-playlist i:hover {
   cursor: pointer;
 }
 
@@ -127,6 +127,12 @@ header .add-to-playlist p {
 .icons i[class*="fa-plus"]:hover{
   color: #505050;
   cursor: pointer;
+}
+
+select {
+  color: #505050;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
 }
 
 /*********************/
