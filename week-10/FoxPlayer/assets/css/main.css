@@ -140,6 +140,26 @@ header .add-to-playlist p {
   padding-left: 15px;
 }
 
+.playlist-item i {
+  margin-left: 10px;
+  margin-bottom: 1px;
+  font-size: 20px;
+  color: #505050;
+}
+
+.playlist-item i[class*="star"]{
+  color: goldenrod;
+}
+
+.default {
+  font-weight: bolder;
+}
+
+.all > *,
+.favourites > * {
+  pointer-events: none;
+}
+
 .playlist-item:nth-child(odd){
   background-color: #EAEAEA;
 }
@@ -153,10 +173,32 @@ header .add-to-playlist p {
   cursor: pointer;
 }
 
+.default > i,
+.custom > p {
+  pointer-events: none;
+}
+
+.custom i{
+  margin-left: 330px;
+  margin-top: 2px;
+  color: #B4B4B4;
+  visibility: hidden;
+}
+
+.custom i:hover{
+  margin-left: 330px;
+  margin-top: 2px;
+  color: #505050;
+}
+
+.playlist-item.custom:hover i{
+  visibility: visible;
+}
+
 /*********************/
 /******* TRACKS ******/
 /*********************/
-.tracks {
+.tracklist {
   background-color: #F5F5F5;
   border-left: 3px solid gray;
   display: flex;
@@ -172,6 +214,10 @@ header .add-to-playlist p {
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
+}
+
+.track-item > * {
+  pointer-events: none;
 }
 
 .track-item:nth-child(even){
@@ -224,7 +270,7 @@ header .add-to-playlist p {
     grid-row: 5 / 11;
   }
   
-  .tracks {
+  .tracklist {
     grid-column: 3 / 4;
     grid-row: 3 / 11;
   }
