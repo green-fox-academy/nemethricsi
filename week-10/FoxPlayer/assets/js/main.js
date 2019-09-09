@@ -46,7 +46,7 @@ createPlaylistButton.addEventListener('click', () => {
         return console.log('cancelled');
       } else {
         console.log(value)
-        vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs!`);
+        vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`);
         // create a new playlist in the database and refresh playlists or create new element in the DO
       }
     }
@@ -56,8 +56,6 @@ createPlaylistButton.addEventListener('click', () => {
 const addToPlaylist = document.querySelector('#add-to-playlist');
 addToPlaylist.addEventListener('click', e => {
   // TODO: input: playlist
-  vex.dialog.buttons.YES.text = 'Add to list';
-  // vex.dialog.buttons.NO.text = 'Aahw hell no';
   vex.dialog.open({
     message: 'Add current song to a playlist',
     input:
@@ -74,8 +72,9 @@ addToPlaylist.addEventListener('click', e => {
         console.log('no data!');
       } else {
         console.log(data.select);
+        vex.dialog.alert(`The song was added to playlist \'${data.select}\'`);
       }
-    }
+    },
   });
 });
 
