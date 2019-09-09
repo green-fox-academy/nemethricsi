@@ -24,19 +24,27 @@ customPlaylists.forEach(element => {
 
 const deletePlaylist = document.querySelector('.fa-times');
 deletePlaylist.addEventListener('click', () => {
-  let deletePlaylist = confirm('Are you sure?'); //true or false
-  if (deletePlaylist === false) {
-    console.log('this wont delete your playlist');
-    return;
-  } else {
-    //delete playlist
-  }
-  console.log('this should delete the playlist');
+  vex.dialog.confirm({
+    message: 'Are you absolutely sure you want to delete the playlist?',
+    callback: function (value) {
+      if (value) {
+        console.log('Playlist deleted')
+      } else {
+        console.log('Nope')
+      }
+    }
+  })
 });
 
 const createPlaylistButton = document.querySelector('#create-playlist');
 createPlaylistButton.addEventListener('click', () => {
-  const newPlaylist = prompt('Type your playlist name below');
-  console.log(newPlaylist);
-  // create a new playlist in the database and refresh playlists or create new element in the DOM
+  vex.dialog.prompt({
+    message: 'Type your playlist name below',
+    placeholder: 'Playlist name',
+    callback: function (value) {
+      console.log(value)
+      vex.dialog.alert(`Playlist ${value} was created! Let's add some songs!`);
+      // create a new playlist in the database and refresh playlists or create new element in the DOM
+    }
+  });
 });
