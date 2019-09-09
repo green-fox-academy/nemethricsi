@@ -61,6 +61,7 @@ header .add-to-playlist p {
   align-self: center;
   font-size: 24px;
   margin-right: 5px;
+  margin-top: 2px;
 }
 
 .add-to-playlist i:hover {
@@ -110,14 +111,19 @@ header .add-to-playlist p {
   padding: 0 10px;
 }
 
-.currently-playing i {
+.icons i {
   font-size: 24px;
   color: #B4B4B4;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
-.currently-playing i:hover{
-  color: gold;
+.icons i[class*="fa-star"]:hover{
+  color: goldenrod;
+  cursor: pointer;
+}
+
+.icons i[class*="fa-plus"]:hover{
+  color: #505050;
   cursor: pointer;
 }
 
@@ -238,7 +244,7 @@ header .add-to-playlist p {
     height: 98vh;
     margin-top: 0.5%;
     grid-template-columns: 1fr minmax(100px, 1fr) 2fr;
-    grid-template-rows: minmax(100px, 1fr) repeat(9, 1fr) minmax(80px, 1fr);
+    grid-template-rows: repeat(4, 62.5px) repeat(6, 1fr) minmax(80px, 1fr);
     /* gap: 5px; */
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 	  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
