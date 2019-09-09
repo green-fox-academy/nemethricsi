@@ -170,7 +170,8 @@ header .add-to-playlist p {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
-  padding-left: 15px;
+  justify-content: space-between;
+  padding: 0 15px;
 }
 
 .track-item:nth-child(even){
