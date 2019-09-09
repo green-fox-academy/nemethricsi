@@ -42,9 +42,25 @@ createPlaylistButton.addEventListener('click', () => {
     message: 'Type your playlist name below',
     placeholder: 'Playlist name',
     callback: function (value) {
-      console.log(value)
-      vex.dialog.alert(`Playlist ${value} was created! Let's add some songs!`);
-      // create a new playlist in the database and refresh playlists or create new element in the DOM
+      if (!value) {
+        return console.log('cancelled');
+      } else {
+        console.log(value)
+        vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs!`);
+        // create a new playlist in the database and refresh playlists or create new element in the DO
+      }
     }
   });
+});
+
+const addToPlaylist = document.querySelector('#add-to-playlist');
+addToPlaylist.addEventListener('click', e => {
+  // TODO: input: playlist
+  vex.dialog.alert('TODO: Add an option to choose a playlist!');
+});
+
+const addToFavourites = document.querySelector('#add-to-favourites');
+addToFavourites.addEventListener('click', e => {
+  // TODO: implement method for addig to Favourites
+  vex.dialog.alert('TODO: Add an option to add song to Favourites!');
 });
