@@ -2,24 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Fox Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/611d9689cc.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Fox Player</title>
 </head>
 
 <body>
-  <main>
-    <header>LOGO, Notif</header>
-    <div class="artwork">Artwork</div>
-    <div class="control-panel">Control panel</div>
-    <div class="currently-playing">Currently playing</div>
-    <div class="add-to-playlist">PLAYLIST +</div>
-    <div class="playlists">Playlists</div>
-    <div class="tracks">Tracks</div>
-  </main>
-  <script src="js/main.js"></script>
+    <main>
+        <header>
+            <div class="logo">
+                <img src="/img/foxplayer.png" alt="">
+                <div class="notifications">Your disco sh*t cannot be played!</div>
+            </div>
+            <div class="add-to-playlist">
+                <p>Playlists</p>
+                <i class="fas fa-plus"></i>
+            </div>
+        </header>
+        <div class="artwork"></div>
+        <div class="control-panel">
+            <audio controls src="/music/Ars_Sonor_-_02_-_Never_Give_Up.mp3"></audio>
+        </div>
+        <div class="currently-playing">
+            <div class="song-info">
+                <h1>Song Title</h1>
+                <p>The Artists</p>
+            </div>
+            <div class="icons">
+                <i class="fas fa-plus"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="playlists">Playlists</div>
+        <div class="tracks">Tracks</div>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
