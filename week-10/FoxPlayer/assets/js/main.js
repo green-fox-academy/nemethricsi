@@ -24,5 +24,19 @@ customPlaylists.forEach(element => {
 
 const deletePlaylist = document.querySelector('.fa-times');
 deletePlaylist.addEventListener('click', () => {
+  let deletePlaylist = confirm('Are you sure?'); //true or false
+  if (deletePlaylist === false) {
+    console.log('this wont delete your playlist');
+    return;
+  } else {
+    //delete playlist
+  }
   console.log('this should delete the playlist');
+});
+
+const createPlaylistButton = document.querySelector('#create-playlist');
+createPlaylistButton.addEventListener('click', () => {
+  const newPlaylist = prompt('Type your playlist name below');
+  console.log(newPlaylist);
+  // create a new playlist in the database and refresh playlists or create new element in the DOM
 });

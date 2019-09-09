@@ -42,8 +42,10 @@ header img {
 }
 
 .notifications {
-  margin-top: 5px;
+  margin-top: 10px;
   color: red;
+  max-height: 65px;
+  overflow: scroll;
 }
 
 header .add-to-playlist{
