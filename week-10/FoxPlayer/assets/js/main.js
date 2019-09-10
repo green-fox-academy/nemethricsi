@@ -54,33 +54,32 @@ createPlaylistButton.addEventListener('click', () => {
 
 const addToPlaylist = document.querySelector('#add-to-playlist');
 addToPlaylist.addEventListener('click', e => {
-  // TODO: input: playlist
   fetch('custom-playlists')
     .then(res => res.json())
-    .then(res => console.log(res));
-  // .then(res =>
-  //   vex.dialog.open({
-  //     message: 'Add current song to a playlist',
-  //     input:
-  //       [
-  //         '<select name="select" id="">',
-  //         res.forEach
-  //         '<option value="">--Select a playlist--</option>',
-  //         '<option value="Playlist-01">Playlist-01</option>',
-  //         '<option value="Playlist-02">Playlist-02</option>',
-  //         '<option value="Playlist-03">Playlist-03</option>',
-  //         '</select>'
-  //       ].join(''),
-  //     callback: function (data) {
-  //       if (!data) {
-  //         console.log('no data!');
-  //       } else {
-  //         console.log(data.select);
-  //         vex.dialog.alert(`The song was added to playlist \'${data.select}\'`);
-  //       }
-  //     },
-  //   });
-  // )
+    .then(res => {
+      const input = [
+        '<select name="select" id="">',
+        '<option value="">--Select a playlist--</option>'
+      ];
+      vex.dialog.open({
+        message: 'Add current song to a playlist',
+        input: input.concat(res
+          .map(e => {
+            return `<option value="${e.playlist}">${e.playlist}</option>`;
+          })
+        )
+          .concat('</select>')
+          .join(''),
+        callback: function (data) {
+          if (!data) {
+            console.log('no data!');
+          } else {
+            console.log(data.select);
+            vex.dialog.alert(`The song was added to playlist \'${data.select}\'`);
+          }
+        },
+      })
+    })
 });
 
 const addToFavourites = document.querySelector('#add-to-favourites');
