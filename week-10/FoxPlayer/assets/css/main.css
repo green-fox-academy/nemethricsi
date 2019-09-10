@@ -183,7 +183,7 @@ select {
 }
 
 .playlist-item:hover{
-  background-color: aquamarine;
+  background-color: #ABE7E5;
   cursor: pointer;
 }
 
@@ -241,7 +241,7 @@ select {
 }
 
 .track-item:hover{
-  background-color: aquamarine;
+  background-color: #ABE7E5;
   cursor: pointer;
 }
 

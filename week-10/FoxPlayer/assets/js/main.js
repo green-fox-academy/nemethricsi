@@ -1,7 +1,7 @@
 const tracks = document.querySelectorAll('.track-item');
 tracks.forEach(element => {
   element.addEventListener('click', e => {
-    //play that title / track
+    // TODO: play that title / track
     console.log(e.target.childNodes[1].textContent);
   });
 });
@@ -50,10 +50,19 @@ createPlaylistButton.addEventListener('click', () => {
     placeholder: 'Playlist name',
     callback: function (value) {
       if (!value) {
-        return console.log('cancelled');
+        return console.log('Playlist creation cancelled');
       } else {
         console.log(value)
-        vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`);
+        fetch('/playlists', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ newPlaylist: value })
+        })
+          // .then(_ => customPlaylists[0].appendChild())
+          .then(_ =>
+            vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`))
+          .then(_ => location.reload());
+
         // TODO: create a new playlist in the database and refresh playlists or create new element in the DO
       }
     }

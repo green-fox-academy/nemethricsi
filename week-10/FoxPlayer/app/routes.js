@@ -49,6 +49,17 @@ app.get('/playlists', (req, res) => {
   });
 });
 
+app.post('/playlists', (req, res) => {
+  const query = `INSERT INTO playlists VALUES(NULL, ?, 0);`;
+  connection.query(query, req.body.newPlaylist, (err, rows) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.sendStatus(201);
+    }
+  });
+});
+
 app.delete('/playlists', (req, res) => {
   connection.query(`DELETE FROM playlists WHERE playlist = ?`, req.body.playlist, (err, result) => {
     if (err) {
