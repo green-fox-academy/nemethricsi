@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
       }
     });
   });
-
   let allTracksPromise = new Promise((resolve, reject) => {
     connection.query(`SELECT * FROM tracks;`, (err, rows) => {
       if (err) {
@@ -67,5 +66,9 @@ app.get('/custom-playlists', (req, res) => {
     res.send(rows);
   });
 });
+
+// app.delete('/', (req, res) => {
+//   connection.query(`DELETE FROM playlists WHERE playlist_id = playlistToBeDeleted `)
+// });
 
 module.exports = app;

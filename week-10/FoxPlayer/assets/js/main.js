@@ -24,6 +24,10 @@ customPlaylists.forEach(element => {
         callback: function (value) {
           if (value) {
             console.log('Playlist deleted')
+            const playlistToBeDeleted = e.target.parentElement.previousElementSibling.textContent;
+            // fetch('/', {
+            //   method: delete
+            // })
           } else {
             console.log('Nope')
           }
