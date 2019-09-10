@@ -31,6 +31,7 @@ customPlaylists.forEach(element => {
       });
     } else {
       console.log(e.target.childNodes[1].textContent);
+      // list all tracks on the right side 
     }
   });
 });

@@ -21,7 +21,27 @@ connection.connect(function (err) {
 });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  let playlistPromise = new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM playlists WHERE playlist_id != 1;`, (err, rows) => {
+      if (err) {
+        console.log('Sum Ting Wong');
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+
+  let allTracksPromise = new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM tracks;`, (err, rows) => {
+      if (err) {
+        console.log('Sum Ting Wong');
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+  Promise.all([playlistPromise, allTracksPromise])
+    .then(resp => res.render('index', { data: resp }));
 });
 
 app.get('/playlists', (req, res) => {

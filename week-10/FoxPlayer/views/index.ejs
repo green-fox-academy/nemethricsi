@@ -29,10 +29,12 @@
         <div class="playlists">
             <div class="playlist-item default">All tracks <i class="fas fa-headphones"></i></div>
             <div class="playlist-item default">Favourites <i class="fas fa-star"></i></div>
+            <% data[0].forEach( e => { %>
             <div class="playlist-item custom">
-                <p class="custom-playlist-title">Custom playlist</p>
+                <p class="custom-playlist-title"><%= e.playlist %></p>
                 <span title="Delete playlist"><i class="fas fa-times"></i></span>
             </div>
+            <% }) %>
         </div>
         <div class="artwork"></div>
         <div class="control-panel">
@@ -50,14 +52,12 @@
             </div>
         </div>
         <div class="tracklist">
+            <% data[1].forEach(e => { %>
             <div class="track-item">
-                <p class="track-title">Track title</p>
+                <p class="track-title"><%= e.track_title %></p>
                 <p class="track-duration">3:32</p>
             </div>
-            <div class="track-item">
-                <p class="track-title">Track title1</p>
-                <p class="track-duration">3:10</p>
-            </div>
+            <% }); %>
         </div>
     </main>
     <script src="js/vendor/vex.combined.min.js"></script>
