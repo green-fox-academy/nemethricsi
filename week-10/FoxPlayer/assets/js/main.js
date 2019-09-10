@@ -18,22 +18,21 @@ const customPlaylists = document.querySelectorAll('.custom');
 customPlaylists.forEach(element => {
   element.addEventListener('click', e => {
     // list that playlist in tracklist
-    console.log(e.target.childNodes[1].textContent);
-  });
-});
-
-const deletePlaylist = document.querySelector('.fa-times');
-deletePlaylist.addEventListener('click', () => {
-  vex.dialog.confirm({
-    message: 'Are you absolutely sure you want to delete the playlist?',
-    callback: function (value) {
-      if (value) {
-        console.log('Playlist deleted')
-      } else {
-        console.log('Nope')
-      }
+    if (e.target.className === 'fas fa-times' || e.target.className === '') {
+      vex.dialog.confirm({
+        message: 'Are you absolutely sure you want to delete the playlist?',
+        callback: function (value) {
+          if (value) {
+            console.log('Playlist deleted')
+          } else {
+            console.log('Nope')
+          }
+        }
+      });
+    } else {
+      console.log(e.target.childNodes[1].textContent);
     }
-  })
+  });
 });
 
 const createPlaylistButton = document.querySelector('#create-playlist');
