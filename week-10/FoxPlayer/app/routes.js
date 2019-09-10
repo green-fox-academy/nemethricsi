@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 
 app.set('view engine', 'ejs');
 app.use(express.static('./assets'));
-// app.use(express.json()); //enable to parse req.body !
+app.use(express.json()); //enable to parse req.body !
 
 connection.connect(function (err) {
   if (err) {
@@ -67,8 +67,14 @@ app.get('/custom-playlists', (req, res) => {
   });
 });
 
-// app.delete('/', (req, res) => {
-//   connection.query(`DELETE FROM playlists WHERE playlist_id = playlistToBeDeleted `)
-// });
+app.delete('/playlists', (req, res) => {
+  connection.query(`DELETE FROM playlists WHERE playlist = ?`, req.body.playlist, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.sendStatus(204);
+    }
+  });
+});
 
 module.exports = app;
