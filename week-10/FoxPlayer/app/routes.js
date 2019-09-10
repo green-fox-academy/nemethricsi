@@ -9,4 +9,13 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/playlists', (req, res) => {
+  // lists all the playlists
+});
+
+app.get('/playlist-tracks', (req, res) => {
+  //  it should return all tracks in the root folder
+  // Subfolders should be explored recursively.
+});
+
 module.exports = app;
