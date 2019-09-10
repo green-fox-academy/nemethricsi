@@ -49,24 +49,6 @@ app.get('/playlists', (req, res) => {
   });
 });
 
-app.get('/playlist-tracks', (req, res) => {
-  connection.query('SELECT * FROM tracks;', (err, rows) => {
-    res.send(rows);
-  });
-});
-
-app.get('/playlist-tracks/:playlist_id', (req, res) => {
-  connection.query(`SELECT * FROM tracks WHERE playlist_id = ${req.params.playlist_id};`, (err, rows) => {
-    res.send(rows);
-  });
-});
-
-app.get('/custom-playlists', (req, res) => {
-  connection.query(`SELECT * FROM playlists WHERE playlist_id != 1;`, (err, rows) => {
-    res.send(rows);
-  });
-});
-
 app.delete('/playlists', (req, res) => {
   connection.query(`DELETE FROM playlists WHERE playlist = ?`, req.body.playlist, (err, result) => {
     if (err) {
@@ -74,6 +56,24 @@ app.delete('/playlists', (req, res) => {
     } else {
       res.sendStatus(204);
     }
+  });
+});
+
+app.get('/playlist-tracks', (req, res) => {
+  connection.query('SELECT * FROM tracks;', (err, rows) => {
+    res.send(rows);
+  });
+});
+
+app.get('/playlist-tracks/:playlist_id', (req, res) => {
+  connection.query(`SELECT * FROM tracks WHERE playlist_id = ?`, req.params.playlist_id, (err, rows) => {
+    res.send(rows);
+  });
+});
+
+app.get('/custom-playlists', (req, res) => {
+  connection.query(`SELECT * FROM playlists WHERE playlist_id != 1;`, (err, rows) => {
+    res.send(rows);
   });
 });
 

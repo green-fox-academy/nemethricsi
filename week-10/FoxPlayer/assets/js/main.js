@@ -18,7 +18,7 @@ const customPlaylists = document.querySelectorAll('.custom');
 customPlaylists.forEach(element => {
   element.addEventListener('click', e => {
     // list that playlist in tracklist
-    if (e.target.className === 'fas fa-times' || e.target.className === '') {
+    if (e.target.className === 'fas fa-trash-alt' || e.target.className === '') {
       vex.dialog.confirm({
         message: 'Are you absolutely sure you want to delete the playlist?',
         callback: function (value) {
