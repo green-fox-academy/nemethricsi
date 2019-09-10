@@ -9,7 +9,7 @@ tracks.forEach(element => {
 const defaultPlaylists = document.querySelectorAll('.default');
 defaultPlaylists.forEach(element => {
   element.addEventListener('click', e => {
-    // list that playlist in tracklist
+    // TODO: list that playlist in tracklist
     console.log(e.target.childNodes[0].textContent);
   });
 });
@@ -17,7 +17,6 @@ defaultPlaylists.forEach(element => {
 const customPlaylists = document.querySelectorAll('.custom');
 customPlaylists.forEach(element => {
   element.addEventListener('click', e => {
-    // list that playlist in tracklist
     if (e.target.className === 'fas fa-trash-alt' || e.target.className === '') {
       vex.dialog.confirm({
         message: 'Are you absolutely sure you want to delete the playlist?',
@@ -39,7 +38,7 @@ customPlaylists.forEach(element => {
       });
     } else {
       console.log(e.target.childNodes[1].textContent);
-      // list all tracks on the right side 
+      // TODO: list all tracks on the right side 
     }
   });
 });
@@ -55,7 +54,7 @@ createPlaylistButton.addEventListener('click', () => {
       } else {
         console.log(value)
         vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`);
-        // create a new playlist in the database and refresh playlists or create new element in the DO
+        // TODO: create a new playlist in the database and refresh playlists or create new element in the DO
       }
     }
   });
