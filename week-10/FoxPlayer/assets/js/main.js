@@ -74,7 +74,6 @@ const duplicateMessage = (error) => {
   vex.dialog.alert(`Error: \'${error}\'`);
 }
 
-const playlistsConatainer = document.querySelector('.playlists');
 const addPlaylistToDOM = (name, id) => {
   const custom = document.createElement('div');
   custom.classList.add('custom');
@@ -91,7 +90,7 @@ const addPlaylistToDOM = (name, id) => {
   icon.classList.add('fa-trash-alt');
   span.appendChild(icon);
   custom.appendChild(span);
-  playlistsConatainer.appendChild(custom);
+  allPlaylists.appendChild(custom);
 }
 
 const addToPlaylist = document.querySelector('#add-to-playlist');
@@ -116,9 +115,15 @@ addToPlaylist.addEventListener('click', e => {
           if (!data) {
             console.log('no data!');
           } else {
-            vex.dialog.alert(`The song was added to playlist \'${res[0].playlist}\'`);
-            console.log(`Selected Playlist id: ${res[0].playlist_id}`);
-            console.log(`Current song id: ${e.target.parentElement.parentElement.previousElementSibling.dataset.id}`);
+            const currentSongID = e.target.parentElement.parentElement.previousElementSibling.dataset.id;
+            const selectedPlaylistID = res[0].playlist_id;
+            fetch(`/playlist-tracks/:${selectedPlaylistID}/:${currentSongID}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            })
+              .then(
+                vex.dialog.alert(`The song was added to playlist \'${res[0].playlist}\'`)
+              );
             // TODO: add song to playlist.
           }
         },

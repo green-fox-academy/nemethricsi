@@ -106,6 +106,17 @@ app.get('/playlist-tracks/:playlist_id', (req, res) => {
   });
 });
 
+app.put('/playlist-tracks/:playlist_id/:track_id', (req, res) => {
+  const query = `UPDATE tracks SET playlist_id = ? WHERE track_id = ?;`;
+  connection.query(query, [req.params.playlist_id, req.params.track_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  });
+})
+
 app.get('/custom-playlists', (req, res) => {
   connection.query(`SELECT * FROM playlists WHERE playlist_id != 1;`, (err, rows) => {
     if (err) {
