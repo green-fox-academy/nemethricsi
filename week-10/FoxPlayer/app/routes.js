@@ -44,12 +44,6 @@ app.get('/', (req, res) => {
     .then(resp => res.render('index', { data: resp }));
 });
 
-app.get('/api/tracks', (req, res) => {
-  fetch('http://localhost:3000/playlist-tracks')
-    .then(answer => answer.json())
-    .then(json => res.render('tracks', { tracks: json }));
-});
-
 app.get('/playlists', (req, res) => {
   connection.query('SELECT * FROM playlists;', (err, rows) => {
     if (err) {
@@ -100,9 +94,15 @@ app.get('/playlist-tracks', (req, res) => {
   });
 });
 
+app.get('/api/tracks', (req, res) => {
+  fetch('http://localhost:3000/playlist-tracks')
+    .then(answer => answer.json())
+    .then(json => res.render('tracks', { tracks: json }));
+});
+
 app.get('/playlist-tracks/:playlist_id', (req, res) => {
   connection.query(`SELECT * FROM tracks WHERE playlist_id = ?`, req.params.playlist_id, (err, rows) => {
-    res.send(rows);
+    res.render('tracks', { tracks: rows });
   });
 });
 

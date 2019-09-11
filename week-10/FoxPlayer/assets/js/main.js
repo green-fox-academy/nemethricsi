@@ -11,14 +11,6 @@ tracks.forEach(element => {
   });
 });
 
-// const defaultPlaylists = document.querySelectorAll('.default');
-// defaultPlaylists.forEach(element => {
-//   element.addEventListener('click', e => {
-//     // TODO: list that playlist in tracklist
-//     console.log(e.target.dataset.id);
-//   });
-// });
-
 const allPlaylists = document.querySelector('.playlists');
 allPlaylists.addEventListener('click', e => {
   if (e.target.className === 'fas fa-trash-alt' || e.target.className === '') {
@@ -40,15 +32,14 @@ allPlaylists.addEventListener('click', e => {
       }
     });
   } else {
-    // TODO: list all tracks on the right side 
     const playlistID = e.target.dataset.id;
-    if (playlistID === '0') {
-      console.log(playlistID);
-    } else if (playlistID === '1') {
-      console.log(playlistID);
-    } else {
-      console.log(playlistID);
-    }
+    const URL = playlistID !== '0'
+      ? `/playlist-tracks/${playlistID}`
+      : `/api/tracks`;
+
+    fetch(URL)
+      .then(res => res.text())
+      .then(tracks => tracklist.innerHTML = tracks);
   }
 });
 
