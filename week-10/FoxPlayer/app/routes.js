@@ -45,7 +45,11 @@ app.get('/', (req, res) => {
 
 app.get('/playlists', (req, res) => {
   connection.query('SELECT * FROM playlists;', (err, rows) => {
-    res.send(rows);
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(rows);
+    }
   });
 });
 
@@ -56,7 +60,7 @@ app.post('/playlists', (req, res) => {
       console.log(err)
       res.status(400).send({ error: 'Playlist name should be unique.' })
     } else {
-      res.status(201).send({ success: `Playlist '${req.body.newPlaylist}' was created!` });
+      res.status(201).send({ success: 'playlist created' });
     }
   });
 });

@@ -29,8 +29,8 @@ customPlaylists.forEach(element => {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ playlist: playlistToBeDeleted })
             })
-              // .then(res => res.text()) - only if you wait resp from backend
-              .then(_ => element.remove());
+              //.then(res => res.text()) - only if you wait resp from backend
+              .then(() => element.remove());
           } else {
             console.log('Nope');
           }
@@ -58,16 +58,41 @@ createPlaylistButton.addEventListener('click', () => {
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ newPlaylist: value })
         })
-          // .then(_ => customPlaylists[0].appendChild())
-          .then(_ =>
-            vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`))
-          .then(_ => location.reload());
-
+          .then(res => res.json())
+          .then(resp => resp.success ? createdPlaylist(value) : duplicateMessage(resp.error));
         // TODO: create a new playlist in the database and refresh playlists or create new element in the DO
       }
     }
   });
 });
+
+const createdPlaylist = (value) => {
+  vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`);
+  addPlaylistToDOM(value);
+}
+
+const duplicateMessage = (error) => {
+  vex.dialog.alert(`Error: \'${error}\'`);
+}
+
+const playlistsConatainer = document.querySelector('.playlists');
+const addPlaylistToDOM = (playlistTitle) => {
+  const custom = document.createElement('div');
+  custom.classList.add('custom');
+  custom.classList.add('playlist-item');
+  const title = document.createElement('p');
+  title.classList.add('custom-playlist-title');
+  title.textContent = playlistTitle;
+  custom.appendChild(title);
+  const span = document.createElement('span');
+  span.setAttribute('title', 'Delete playlist');
+  const icon = document.createElement('i');
+  icon.classList.add('fas');
+  icon.classList.add('fa-trash-alt');
+  span.appendChild(icon);
+  custom.appendChild(span);
+  playlistsConatainer.appendChild(custom);
+}
 
 const addToPlaylist = document.querySelector('#add-to-playlist');
 addToPlaylist.addEventListener('click', e => {
