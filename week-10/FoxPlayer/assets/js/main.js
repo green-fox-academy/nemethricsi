@@ -36,14 +36,12 @@ allPlaylists.addEventListener('click', e => {
     });
   } else {
     // TODO: list all tracks on the right side 
-    if (e.target.dataset.id === '0') {
-      const playlistID = e.target.dataset.id;
+    const playlistID = e.target.dataset.id;
+    if (playlistID === '0') {
       console.log(playlistID);
-    } else if (e.target.dataset.id === '1') {
-      const playlistID = e.target.dataset.id;
+    } else if (playlistID === '1') {
       console.log(playlistID);
     } else {
-      const playlistID = e.target.childNodes[1].dataset.id;
       console.log(playlistID);
     }
   }
@@ -65,15 +63,15 @@ createPlaylistButton.addEventListener('click', () => {
           body: JSON.stringify({ newPlaylist: value })
         })
           .then(res => res.json())
-          .then(resp => resp.success ? createdPlaylist(value) : duplicateMessage(resp.error));
+          .then(resp => resp.created ? createdPlaylist(resp.playlist, resp.playlist_id) : duplicateMessage(resp.error));
       }
     }
   });
 });
 
-const createdPlaylist = (value) => {
-  vex.dialog.alert(`Playlist \'${value}\' was created! Let's add some songs to it!`);
-  addPlaylistToDOM(value);
+const createdPlaylist = (name, id) => {
+  vex.dialog.alert(`Playlist \'${name}\' was created! Let's add some songs to it!`);
+  addPlaylistToDOM(name, id);
 }
 
 const duplicateMessage = (error) => {
@@ -81,13 +79,14 @@ const duplicateMessage = (error) => {
 }
 
 const playlistsConatainer = document.querySelector('.playlists');
-const addPlaylistToDOM = (playlistTitle) => {
+const addPlaylistToDOM = (name, id) => {
   const custom = document.createElement('div');
   custom.classList.add('custom');
   custom.classList.add('playlist-item');
+  custom.setAttribute('data-id', id)
   const title = document.createElement('p');
   title.classList.add('custom-playlist-title');
-  title.textContent = playlistTitle;
+  title.textContent = name;
   custom.appendChild(title);
   const span = document.createElement('span');
   span.setAttribute('title', 'Delete playlist');

@@ -30,8 +30,8 @@
             <div class="playlist-item default" data-id="0">All tracks<i class="fas fa-headphones"></i></div>
             <div class="playlist-item default" data-id="1">Favourites<i class="fas fa-star"></i></div>
             <% data[0].forEach( e => { %>
-            <div class="playlist-item custom">
-                <p class="custom-playlist-title" data-id="<%= e.playlist_id %>"><%= e.playlist %></p>
+            <div class="playlist-item custom" data-id="<%= e.playlist_id %>">
+                <p class="custom-playlist-title"><%= e.playlist %></p>
                 <span title="Delete playlist"><i class="fas fa-trash-alt"></i></span>
             </div>
             <% }) %>

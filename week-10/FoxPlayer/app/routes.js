@@ -55,12 +55,24 @@ app.get('/playlists', (req, res) => {
 
 app.post('/playlists', (req, res) => {
   const query = `INSERT INTO playlists VALUES(NULL, ?, 0);`;
-  connection.query(query, req.body.newPlaylist, (err, rows) => {
+  const queryLastItem = `SELECT * FROM playlists WHERE playlist_id = ?`;
+  connection.query(query, req.body.newPlaylist, (err, result) => {
     if (err) {
       console.log(err)
       res.status(400).send({ error: 'Playlist name should be unique.' })
     } else {
-      res.status(201).send({ success: 'playlist created' });
+      connection.query(queryLastItem, result.insertId, (err, result) => {
+        if (err) {
+          console.log(err)
+        } else {
+          res.status(201).send({
+            created: 'playlist created',
+            playlist_id: result[0].playlist_id,
+            playlist: result[0].playlist,
+            systems: result[0].systems
+          });
+        }
+      });
     }
   });
 });
