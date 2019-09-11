@@ -89,13 +89,160 @@ _an open source technology stack for building diagramming applications, and the 
 
 # 5. Others
 
-[EMMET Cheatsheet](https://docs.emmet.io/cheat-sheet/)
-
 [JS keycodes](http://keycodes.atjayjo.com/#charcode)
 
 [Carbon](https://carbon.now.sh/) - _Create and share beautiful images of your source code._
 
 [Pexels](https://www.pexels.com/) - _Free stock photos_
+
+# 6. EMMET
+
+[EMMET Cheatsheet](https://docs.emmet.io/cheat-sheet/)
+
+## HTML
+
+`div>(header>ul>li*2>a)+footer>p`
+
+```html
+<div>
+    <header>
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </header>
+    <footer>
+        <p></p>
+    </footer>
+</div>
+```
+`html:5` Vs. `!`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+```
+
+`script:src`
+
+```html
+<script src=""></script>
+```
+
+`input:password` Vs. `input:p`
+
+```html
+<input type="password" name="" id="">
+```
+
+`button:submit` Vs. `button:s` Vs. `btn:s`
+
+```html
+<button type="submit"></button>
+
+```
+
+`.title`
+
+```html
+<div class="title"></div>
+```
+
+`a{Buy it now!}`
+
+```html
+<a href="">Buy it now!</a>
+```
+
+## CSS
+
+`d` 
+```css
+a {
+  display: block;
+}
+```
+
+`d:f` 
+```css
+main {
+  display: flex;
+}
+```
+
+`maw`
+
+```css
+main {
+  max-width: ;
+}
+```
+
+`ta:c`
+
+```css
+body {
+  text-align: center;
+}
+```
+
+`td`
+
+```css
+a {
+  text-decoration: none;
+}
+```
+
+`bgc`
+
+```css
+body {
+  background-color: #fff;
+}
+```
+
+`bgi`
+
+```css
+body {
+  background-image: url();
+}
+```
+
+`bgsz:c`
+
+```css
+body {
+  background-size: cover;
+}
+```
+
+`bd`(+)
+
+```css
+body {
+  border: 1px solid #000;
+}
+```
+
+`jc:c`
+
+```css
+body {
+  justify-content: center;
+}
+```
 
 
 
