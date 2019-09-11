@@ -116,8 +116,10 @@ addToPlaylist.addEventListener('click', e => {
           if (!data) {
             console.log('no data!');
           } else {
-            console.log(data.select);
-            vex.dialog.alert(`The song was added to playlist \'${data.select}\'`);
+            vex.dialog.alert(`The song was added to playlist \'${res[0].playlist}\'`);
+            console.log(`Selected Playlist id: ${res[0].playlist_id}`);
+            console.log(`Current song id: ${e.target.parentElement.parentElement.previousElementSibling.dataset.id}`);
+            // TODO: add song to playlist.
           }
         },
       })

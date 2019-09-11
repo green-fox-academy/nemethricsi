@@ -108,7 +108,11 @@ app.get('/playlist-tracks/:playlist_id', (req, res) => {
 
 app.get('/custom-playlists', (req, res) => {
   connection.query(`SELECT * FROM playlists WHERE playlist_id != 1;`, (err, rows) => {
-    res.send(rows);
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(rows);
+    }
   });
 });
 
