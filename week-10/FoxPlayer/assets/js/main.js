@@ -10,7 +10,7 @@ const defaultPlaylists = document.querySelectorAll('.default');
 defaultPlaylists.forEach(element => {
   element.addEventListener('click', e => {
     // TODO: list that playlist in tracklist
-    console.log(e.target.childNodes[0].textContent);
+    console.log(e.target.dataset.id);
   });
 });
 
@@ -37,7 +37,7 @@ customPlaylists.forEach(element => {
         }
       });
     } else {
-      console.log(e.target.childNodes[1].textContent);
+      console.log(e.target.childNodes[1].dataset.id);
       // TODO: list all tracks on the right side 
     }
   });
