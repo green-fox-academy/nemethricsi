@@ -54,8 +54,9 @@ app.post('/playlists', (req, res) => {
   connection.query(query, req.body.newPlaylist, (err, rows) => {
     if (err) {
       console.log(err)
+      res.status(400).send({ error: 'Playlist name should be unique.' })
     } else {
-      res.sendStatus(201);
+      res.status(201).send({ success: `Playlist '${req.body.newPlaylist}' was created!` });
     }
   });
 });
