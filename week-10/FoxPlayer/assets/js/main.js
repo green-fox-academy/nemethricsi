@@ -6,41 +6,47 @@ tracks.forEach(element => {
   });
 });
 
-const defaultPlaylists = document.querySelectorAll('.default');
-defaultPlaylists.forEach(element => {
-  element.addEventListener('click', e => {
-    // TODO: list that playlist in tracklist
-    console.log(e.target.dataset.id);
-  });
-});
+// const defaultPlaylists = document.querySelectorAll('.default');
+// defaultPlaylists.forEach(element => {
+//   element.addEventListener('click', e => {
+//     // TODO: list that playlist in tracklist
+//     console.log(e.target.dataset.id);
+//   });
+// });
 
-const customPlaylists = document.querySelectorAll('.custom');
-customPlaylists.forEach(element => {
-  element.addEventListener('click', e => {
-    if (e.target.className === 'fas fa-trash-alt' || e.target.className === '') {
-      vex.dialog.confirm({
-        message: 'Are you absolutely sure you want to delete the playlist?',
-        callback: function (value) {
-          if (value) {
-            console.log('Playlist deleted')
-            const playlistToBeDeleted = e.target.parentElement.previousElementSibling.textContent;
-            fetch('/playlists', {
-              method: 'DELETE',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ playlist: playlistToBeDeleted })
-            })
-              //.then(res => res.text()) - only if you wait resp from backend
-              .then(() => element.remove());
-          } else {
-            console.log('Nope');
-          }
+const allPlaylists = document.querySelector('.playlists');
+allPlaylists.addEventListener('click', e => {
+  if (e.target.className === 'fas fa-trash-alt' || e.target.className === '') {
+    vex.dialog.confirm({
+      message: 'Are you absolutely sure you want to delete the playlist?',
+      callback: function (value) {
+        if (value) {
+          console.log('Playlist deleted')
+          const playlistToBeDeleted = e.target.parentElement.previousElementSibling.textContent;
+          fetch('/playlists', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ playlist: playlistToBeDeleted })
+          })
+            .then(() => e.target.parentElement.parentElement.remove());
+        } else {
+          console.log('Nope');
         }
-      });
+      }
+    });
+  } else {
+    // TODO: list all tracks on the right side 
+    if (e.target.dataset.id === '0') {
+      const playlistID = e.target.dataset.id;
+      console.log(playlistID);
+    } else if (e.target.dataset.id === '1') {
+      const playlistID = e.target.dataset.id;
+      console.log(playlistID);
     } else {
-      console.log(e.target.childNodes[1].dataset.id);
-      // TODO: list all tracks on the right side 
+      const playlistID = e.target.childNodes[1].dataset.id;
+      console.log(playlistID);
     }
-  });
+  }
 });
 
 const createPlaylistButton = document.querySelector('#create-playlist');
@@ -60,7 +66,6 @@ createPlaylistButton.addEventListener('click', () => {
         })
           .then(res => res.json())
           .then(resp => resp.success ? createdPlaylist(value) : duplicateMessage(resp.error));
-        // TODO: create a new playlist in the database and refresh playlists or create new element in the DO
       }
     }
   });
