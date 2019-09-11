@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fetch = require('node-fetch');
 const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -41,6 +42,12 @@ app.get('/', (req, res) => {
   });
   Promise.all([playlistPromise, allTracksPromise])
     .then(resp => res.render('index', { data: resp }));
+});
+
+app.get('/api/tracks', (req, res) => {
+  fetch('http://localhost:3000/playlist-tracks')
+    .then(answer => answer.json())
+    .then(json => res.render('tracks', { tracks: json }));
 });
 
 app.get('/playlists', (req, res) => {

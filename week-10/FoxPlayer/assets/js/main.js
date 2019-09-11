@@ -1,3 +1,8 @@
+const tracklist = document.querySelector('.tracklist');
+fetch('/api/tracks')
+  .then(res => res.text())
+  .then(tracks => tracklist.innerHTML = tracks);
+
 const tracks = document.querySelectorAll('.track-item');
 tracks.forEach(element => {
   element.addEventListener('click', e => {
