@@ -106,6 +106,10 @@ header .create-playlist p {
   justify-content: center;
 }
 
+#current-song-title{
+  font-size: 24px;
+}
+
 .icons{
   display: flex;
   align-items: center;

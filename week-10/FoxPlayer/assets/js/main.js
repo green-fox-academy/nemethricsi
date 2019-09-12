@@ -4,9 +4,16 @@ fetch('/api/tracks')
   .then(tracks => tracklist.innerHTML = tracks);
 
 tracklist.addEventListener('click', e => {
+  console.log(e.target.dataset.artist);
   const audioElement = document.querySelector('audio');
   audioElement.setAttribute('src', e.target.dataset.path);
   audioElement.setAttribute('autoplay', 'true');
+
+  // change the currently playling song
+  let currentSongTitle = document.getElementById('current-song-title');
+  let currentArtist = document.getElementById('current-song-artist');
+  currentSongTitle.textContent = e.target.firstElementChild.innerText;
+  currentArtist.textContent = e.target.dataset.artist;
 });
 
 const allPlaylists = document.querySelector('.playlists');
