@@ -12,6 +12,8 @@ tracklist.addEventListener('click', e => {
   // change the currently playling song
   let currentSongTitle = document.getElementById('current-song-title');
   let currentArtist = document.getElementById('current-song-artist');
+  let currentSongInfo = document.querySelector('.song-info');
+  currentSongInfo.setAttribute('data-id', e.target.dataset.id);
   currentSongTitle.textContent = e.target.firstElementChild.innerText;
   currentArtist.textContent = e.target.dataset.artist;
 });
@@ -122,7 +124,7 @@ addToPlaylist.addEventListener('click', e => {
           } else {
             const currentSongID = e.target.parentElement.parentElement.previousElementSibling.dataset.id;
             const selectedPlaylistID = res[0].playlist_id;
-            fetch(`/playlist-tracks/:${selectedPlaylistID}/:${currentSongID}`, {
+            fetch(`/playlist-tracks/${selectedPlaylistID}/${currentSongID}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             })
