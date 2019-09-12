@@ -64,7 +64,11 @@ _Screen Capture FULL Web page or any part. Edit screenshots. Record screencasts 
 
 _an open source technology stack for building diagramming applications, and the world’s most widely used browser-based end-user diagramming application._
 
-[https://www.draw.io/](https://www.draw.io/)
+[draw.io](https://www.draw.io/)
+
+## b) Word counter
+
+[wordcounter.io](https://wordcounter.io/)
 
 
 # 3. CSS
