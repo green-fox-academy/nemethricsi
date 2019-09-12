@@ -83,9 +83,9 @@ _an open source technology stack for building diagramming applications, and the 
 
 # 4. Colors
 
-[Coolors.co](https://coolors.co)
+[Coolors.co](https://coolors.co) - _color schemes_
 
-[0 to 255](https://www.0to255.com/)
+[0 to 255](https://www.0to255.com/) - _color shades_
 
 # 5. Others
 
