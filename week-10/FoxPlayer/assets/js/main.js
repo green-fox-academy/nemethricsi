@@ -1,4 +1,10 @@
+const star = document.getElementById('add-to-favourites');
 const tracklist = document.querySelector('.tracklist');
+
+let currentSongTitle = document.getElementById('current-song-title');
+let currentArtist = document.getElementById('current-song-artist');
+let currentSongInfo = document.querySelector('.song-info');
+
 fetch('/api/tracks')
   .then(res => res.text())
   .then(tracks => tracklist.innerHTML = tracks);
@@ -9,18 +15,18 @@ tracklist.addEventListener('click', e => {
   audioElement.setAttribute('autoplay', 'true');
 
   // change the currently playling song
-  let currentSongTitle = document.getElementById('current-song-title');
-  let currentArtist = document.getElementById('current-song-artist');
-  let currentSongInfo = document.querySelector('.song-info');
   currentSongInfo.setAttribute('data-id', e.target.dataset.id);
   currentSongTitle.textContent = e.target.firstElementChild.innerText;
   currentArtist.textContent = e.target.dataset.artist;
 
   // check if it the song is favourite and change the color of the star accordingly
-  const star = document.getElementById('add-to-favourites');
-  if (e.target.dataset.playlist_id === 1) {
-    star.style.color = '#DAA520';
-  }
+  // if (e.target.dataset.playlistid === '1') {
+  //   star.style.color = '#DAA520';
+  //   // star.classList.toggle('.favourited');
+  //   //   console.log(e.target.dataset.playlistid);
+  // } else if (e.target.dataset.playlistid !== '1') {
+  //   star.style.color = '#B4B4B4'
+  // }
 });
 
 const allPlaylists = document.querySelector('.playlists');
@@ -151,8 +157,22 @@ const addToFavourites = document.querySelector('#add-to-favourites');
 addToFavourites.addEventListener('click', e => {
   // TODO: implement method for addig to Favourites
 
-  // if star color is gray:
-  // Current track's playlist ID changes to 1 - fetch
+  // if the current song's playlist_id is not 1:
+  if (currentSongTitle === '') {
+    vex.dialog.alert(`Please play a song first!`)
+  } else {
+    let currentSongID = e.target.parentElement.parentElement.previousElementSibling.dataset.id;
+    console.log(e.target.parentElement.parentElement.previousElementSibling.dataset.id);
+    fetch(`/playlist-tracks/1/${currentSongID}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    })
+      .then(
+        vex.dialog.alert(`This song was added to your Favourites'`),
+        star.style.color = '#DAA520'
+      );
+
+  }
   // Star color changes to yellow when this song is played 
   // ---> when you click on the track it validates if the song's
   // current playlist_id is 1 if it is changes the star color to yellow.
@@ -160,5 +180,4 @@ addToFavourites.addEventListener('click', e => {
   // if star color is yellow:
   // Current track's playlist ID changes to NULL - fetch ??
   // star color changes to gray when this song is played
-  vex.dialog.alert('TODO: Add an option to add song to Favourites!');
 });

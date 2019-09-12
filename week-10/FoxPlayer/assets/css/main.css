@@ -124,7 +124,7 @@ header .create-playlist p {
 }
 
 .icons i[class*="fa-star"]:hover{
-  color: goldenrod;
+  color: #DAA520;
   cursor: pointer;
 }
 
@@ -170,7 +170,7 @@ select {
 }
 
 .playlist-item i[class*="star"]{
-  color: goldenrod;
+  color: #DAA520;
 }
 
 .default {
