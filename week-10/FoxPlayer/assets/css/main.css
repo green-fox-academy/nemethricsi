@@ -211,6 +211,10 @@ select {
   visibility: visible;
 }
 
+/* .selected-playlist{
+  background-color: #ABE7E5;
+} */
+
 /*********************/
 /******* TRACKS ******/
 /*********************/

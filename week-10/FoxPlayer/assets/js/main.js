@@ -50,6 +50,8 @@ allPlaylists.addEventListener('click', e => {
       }
     });
   } else {
+    console.log(e);
+    // e.target.classList.toggle('selected-playlist');
     const playlistID = e.target.dataset.id;
     const URL = playlistID !== '0'
       ? `/playlist-tracks/${playlistID}`
