@@ -131,7 +131,6 @@ addToPlaylist.addEventListener('click', e => {
               .then(
                 vex.dialog.alert(`The song was added to playlist \'${res[0].playlist}\'`)
               );
-            // TODO: add song to playlist.
           }
         },
       })
