@@ -4,7 +4,6 @@ fetch('/api/tracks')
   .then(tracks => tracklist.innerHTML = tracks);
 
 tracklist.addEventListener('click', e => {
-  console.log(e.target.dataset.artist);
   const audioElement = document.querySelector('audio');
   audioElement.setAttribute('src', e.target.dataset.path);
   audioElement.setAttribute('autoplay', 'true');
@@ -119,18 +118,23 @@ addToPlaylist.addEventListener('click', e => {
           .concat('</select>')
           .join(''),
         callback: function (data) {
-          if (!data) {
-            console.log('no data!');
+          let currentSongID = e.target.parentElement.parentElement.previousElementSibling.dataset.id;
+          if (!data || currentSongID === '') {
+            console.log('no song was played!');
+            vex.dialog.alert(`Please play a song first!`)
           } else {
-            const currentSongID = e.target.parentElement.parentElement.previousElementSibling.dataset.id;
-            const selectedPlaylistID = res[0].playlist_id;
-            fetch(`/playlist-tracks/${selectedPlaylistID}/${currentSongID}`, {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            res.forEach(e => {
+              if (data.select === e.playlist) {
+                const selectedPlaylistID = e.playlist_id;
+                fetch(`/playlist-tracks/${selectedPlaylistID}/${currentSongID}`, {
+                  method: 'PUT',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                })
+                  .then(
+                    vex.dialog.alert(`This song was added to playlist \'${e.playlist}\'`)
+                  );
+              }
             })
-              .then(
-                vex.dialog.alert(`The song was added to playlist \'${res[0].playlist}\'`)
-              );
           }
         },
       })
