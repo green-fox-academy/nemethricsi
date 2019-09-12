@@ -72,7 +72,7 @@ header .create-playlist p {
 
 .artwork{
   background-color: rgba(223, 223, 223, 0.9);
-  background: url('https://via.placeholder.com/150') no-repeat;
+  background: url('/img/fnm-angeldust.jpg') no-repeat;
   background-position: center;
   background-size: cover;
 }

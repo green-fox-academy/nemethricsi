@@ -3,12 +3,10 @@ fetch('/api/tracks')
   .then(res => res.text())
   .then(tracks => tracklist.innerHTML = tracks);
 
-const tracks = document.querySelectorAll('.track-item');
-tracks.forEach(element => {
-  element.addEventListener('click', e => {
-    // TODO: play that title / track
-    console.log(e.target.childNodes[1].textContent);
-  });
+tracklist.addEventListener('click', e => {
+  const audioElement = document.querySelector('audio');
+  audioElement.setAttribute('src', e.target.dataset.path);
+  audioElement.setAttribute('autoplay', 'true');
 });
 
 const allPlaylists = document.querySelector('.playlists');
