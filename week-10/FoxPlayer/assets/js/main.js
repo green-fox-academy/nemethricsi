@@ -15,6 +15,12 @@ tracklist.addEventListener('click', e => {
   currentSongInfo.setAttribute('data-id', e.target.dataset.id);
   currentSongTitle.textContent = e.target.firstElementChild.innerText;
   currentArtist.textContent = e.target.dataset.artist;
+
+  // check if it the song is favourite and change the color of the star accordingly
+  const star = document.getElementById('add-to-favourites');
+  if (e.target.dataset.playlist_id === 1) {
+    star.style.color = '#DAA520';
+  }
 });
 
 const allPlaylists = document.querySelector('.playlists');
@@ -144,5 +150,15 @@ addToPlaylist.addEventListener('click', e => {
 const addToFavourites = document.querySelector('#add-to-favourites');
 addToFavourites.addEventListener('click', e => {
   // TODO: implement method for addig to Favourites
+
+  // if star color is gray:
+  // Current track's playlist ID changes to 1 - fetch
+  // Star color changes to yellow when this song is played 
+  // ---> when you click on the track it validates if the song's
+  // current playlist_id is 1 if it is changes the star color to yellow.
+
+  // if star color is yellow:
+  // Current track's playlist ID changes to NULL - fetch ??
+  // star color changes to gray when this song is played
   vex.dialog.alert('TODO: Add an option to add song to Favourites!');
 });

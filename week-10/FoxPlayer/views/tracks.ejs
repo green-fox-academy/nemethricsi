@@ -1,5 +1,6 @@
 <% tracks.forEach(e => { %>
-<div class="track-item" data-id="<%= e.track_id %>" data-path="<%= e.path %>" data-artist="<%= e.artist %>">
+<div class="track-item" data-id="<%= e.track_id %>" data-playlistId="<%= e.playlist_id %>" data-path="<%= e.path %>"
+  data-artist="<%= e.artist %>">
   <p class="track-title"><%= e.track_title %></p>
   <p class="track-duration">3:32</p>
 </div>
