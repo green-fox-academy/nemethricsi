@@ -164,6 +164,12 @@ _an open source technology stack for building diagramming applications, and the 
 <a href="">Buy it now!</a>
 ```
 
+`lorem20`
+
+```html
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A corporis ipsum soluta quod incidunt iste omnis possimus itaque debitis molestiae?</p>
+```
+
 ## CSS
 
 `d` 
