@@ -38,7 +38,7 @@ app.post('/api/links', (req, res) => {
   connection.query(query, [url, alias, 0, secret], (err, rows) => {
     if (err) {
       console.log(err)
-      //res.status(400);
+      res.status(400).send({ error: 'Duplicate entry: alias should be unique.' });
     } else {
       console.log(rows);
       connection.query(queryLastItem, rows.insertId, (err, result) => {
