@@ -1,16 +1,16 @@
-### TABLE OF CONTENTS
+### TABLE OF CONTENTS (only most useful things listed here like **CRUD**)
 
 0. [General stuff](https://github.com/green-fox-academy/nemethricsi/tree/master/week-07/day-01#0-login-to-mysql-in-command-line)
 1. [Databases](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#1-show-all-the-databases-you-have)
 5. [**CREATE** a Table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#5-create-table)
 6. [Show description of a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#6-describe-table)
 7. [Insert record to a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#7-insert-into-table-values-)
-8. [READ from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
+8. [**READ** from a table](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#8-select--from-table)
 10. [Primary Key](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#10-primary-key-event_id-student_id)
 15. [WHERE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#15-where)
 20. [LIKE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#20-like)
-25. [DELETE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#25-delete-a-record)
-28. [UPDATE](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#28-update-a-record)
+25. [**DELETE**](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#25-delete-a-record)
+28. [**UPDATE**](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#28-update-a-record)
 31. [JOIN](https://github.com/green-fox-academy/nemethricsi/blob/master/week-07/day-01/README.md#31-join)
 
 ### 0. Login to MYSQL in command line
