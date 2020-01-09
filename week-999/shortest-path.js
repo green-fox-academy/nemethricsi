@@ -1,13 +1,13 @@
 const graph = {
-  start: {B: 15, C: 13, D: 5},
+  A: {B: 15, C: 13, D: 5},
   B: {H: 12},
   C: {D: 18, F: 6},
   D: {E: 4, H: 99},
   E: {C: 3, F: 1, G: 9, H: 14},
-  F: {B: 8, finish: 17},
-  G: {F: 16, finish: 7, H: 10},
-  H: {finish: 11},
-  finish: {},
+  F: {B: 8, I: 17},
+  G: {F: 16, I: 7, H: 10},
+  H: {I: 11},
+  I: {},
 };
 
 const lowestCostNode = (costs, processed) => {
@@ -22,10 +22,10 @@ const lowestCostNode = (costs, processed) => {
 };
 
 const dijkstra = (graph) => {
-  const costs = Object.assign({finish: Infinity}, graph.start);
-  const parents = {finish: null};
-  for (let child in graph.start) {
-    parents[child] = 'start';
+  const costs = Object.assign({I: Infinity}, graph.A);
+  const parents = {I: null};
+  for (let child in graph.A) {
+    parents[child] = 'A';
   }
   const processed = [];
 
@@ -49,8 +49,8 @@ const dijkstra = (graph) => {
     node = lowestCostNode(costs, processed);
   }
 
-  let optimalPath = ['finish'];
-  let parent = parents.finish;
+  let optimalPath = ['I'];
+  let parent = parents.I;
   while (parent) {
     optimalPath.push(parent);
     parent = parents[parent];
@@ -58,7 +58,7 @@ const dijkstra = (graph) => {
   optimalPath.reverse();
 
   const results = {
-    distance: costs.finish,
+    distance: costs.I,
     path: optimalPath,
   };
 
